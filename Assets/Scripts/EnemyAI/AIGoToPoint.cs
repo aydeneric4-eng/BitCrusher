@@ -1,19 +1,22 @@
+using System;
 using UnityEngine;
+using UnityEngine.UIElements;
 
 [RequireComponent(typeof(RBMovement))]
 public class AIGoToPoint : MonoBehaviour
 {
-    [SerializeField] Transform targetTransform;
     [SerializeField] float maxVectComponentDifference = 0.05f;
-    [SerializeField] float minDistanceToTarget = 0.5f;
+    [SerializeField] public float minDistanceToTarget = 0.5f;
     [SerializeField] bool active = false;
 
-    private Transform selfTransform;
     private RBMovement selfRBM;
+
+    private Vector3 targetPosition;
+
+    public event Action reachedTarget;
 
     private void Awake()
     {
-        selfTransform = GetComponent<Transform>();
         selfRBM = GetComponent<RBMovement>();
     }
 
@@ -25,22 +28,26 @@ public class AIGoToPoint : MonoBehaviour
             return value;
     }
 
+    public void GoToPoint(Vector3 position)
+    {
+        targetPosition = position;
+        active = true;
+    }
+
     private void FixedUpdate()
     {
-        if ((selfTransform.position - targetTransform.position).magnitude < minDistanceToTarget)
+        if ((transform.position - targetPosition).magnitude < minDistanceToTarget && active)
         {
+            active = false;
             selfRBM.inputMovementVector = Vector3.zero;
-            return;
+            reachedTarget.Invoke();
         }
+
         if (active)
         {
-            Vector3 inputVect = (Vector3)CustomUtilities.GetVectorByAngleAndDistance(1, CustomUtilities.GetAngleOf2DVect((Vector2)selfTransform.position, (Vector2)targetTransform.position));
-
+            Vector3 inputVect = (Vector3)CustomUtilities.GetVectorByAngleAndDistance(1, CustomUtilities.GetAngleOf2DVect((Vector2)transform.position, (Vector2)targetPosition));
             inputVect = new Vector3(IsValueOutOfRange(inputVect.x, maxVectComponentDifference), IsValueOutOfRange(inputVect.y, maxVectComponentDifference), 0);
-            
-            //Debug.Log(inputVect);
             selfRBM.inputMovementVector = inputVect;
         }
-        
     }
 }

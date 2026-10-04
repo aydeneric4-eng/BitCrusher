@@ -2,13 +2,13 @@ using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.InputSystem;
 
-public class OrbitParentAndAimAtTarget : MonoBehaviour
+public class OrbitAnchorAndAimAtTarget : MonoBehaviour
 {
     [SerializeField] bool isTargetMouse = false;
     [SerializeField] Transform targetTransform;
     [SerializeField] bool rotateTowardsTarget;
 
-    [SerializeField] Transform orbitParentTransform;
+    [SerializeField] Transform orbitAnchorTransform;
     [SerializeField] bool orbitTowardsTarget;
     [SerializeField] float orbitDistance = 0.1f;
 
@@ -37,7 +37,7 @@ public class OrbitParentAndAimAtTarget : MonoBehaviour
             targetPosition = CustomUtilities.Vec3ToVec2(targetTransform.position);
         }
         Vector2 selfPos = CustomUtilities.Vec3ToVec2(selfTransform.position);
-        float angleToTarget = CustomUtilities.GetAngleOf2DVect(orbitParentTransform.position, targetPosition);
+        float angleToTarget = CustomUtilities.GetAngleOf2DVect(orbitAnchorTransform.position, targetPosition);
 
         if (rotateTowardsTarget)
         {
@@ -45,7 +45,7 @@ public class OrbitParentAndAimAtTarget : MonoBehaviour
         }
         if (orbitTowardsTarget)
         {
-            selfTransform.position = orbitParentTransform.position + CustomUtilities.GetVectorByAngleAndDistance(orbitDistance,angleToTarget);
+            selfTransform.position = orbitAnchorTransform.position + CustomUtilities.GetVectorByAngleAndDistance(orbitDistance,angleToTarget);
         }
 
     }
