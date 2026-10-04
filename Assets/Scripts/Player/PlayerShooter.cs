@@ -1,6 +1,7 @@
 using UnityEngine;
 using UnityEngine.InputSystem;
 
+[RequireComponent(typeof(PlayerManager))]
 [RequireComponent(typeof(BulletShooter))]
 public class PlayerShooter : MonoBehaviour
 {

@@ -2,6 +2,7 @@ using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.InputSystem;
 
+[RequireComponent(typeof(PlayerManager))]
 [RequireComponent(typeof(RBMovement))]
 public class PlayerMovement : MonoBehaviour
 {

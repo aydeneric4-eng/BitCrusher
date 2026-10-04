@@ -13,7 +13,7 @@ GameObject:
   - component: {fileID: 4973878782293246161}
   - component: {fileID: 6366949456258171480}
   - component: {fileID: 8139222434132636393}
-  - component: {fileID: 2961090902483832644}
+  - component: {fileID: 7012099998044028948}
   - component: {fileID: 7785547343495102365}
   - component: {fileID: 3537987666104519328}
   - component: {fileID: 3860435336593412368}
@@ -183,7 +183,7 @@ MonoBehaviour:
   playerTeam: 1
   healthBar: {fileID: 2188188807482471905}
   maxHealth: 100
---- !u!114 &2961090902483832644
+--- !u!114 &7012099998044028948
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -192,10 +192,10 @@ MonoBehaviour:
   m_GameObject: {fileID: 2987963101055509274}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: f108213af09f6cb4a9e9235637799ce6, type: 3}
+  m_Script: {fileID: 11500000, guid: 9c3c6cab2c51d3548b0de042ec0cb6fb, type: 3}
   m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::DeathHandler
-  disablerExceptions: []
+  m_EditorClassIdentifier: Assembly-CSharp::EnemyDeathHandler
+  scoreReward: 100
 --- !u!114 &7785547343495102365
 MonoBehaviour:
   m_ObjectHideFlags: 0

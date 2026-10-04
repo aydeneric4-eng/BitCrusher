@@ -56,7 +56,7 @@ public class AIGoToPoint : MonoBehaviour
 
     private void FixedUpdate()
     {
-        if (isChasing)
+        if (isChasing && chaseTransform)
         {
             targetPosition = chaseTransform.position;
         }

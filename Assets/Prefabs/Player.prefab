@@ -128,7 +128,7 @@ GameObject:
   - component: {fileID: 701302393855420963}
   - component: {fileID: 895942861789542817}
   - component: {fileID: 7303515402963308842}
-  - component: {fileID: 4727035284686776872}
+  - component: {fileID: 967119897768203474}
   - component: {fileID: 6304692561533267519}
   - component: {fileID: 3154361035443456668}
   - component: {fileID: 1408656526759089405}
@@ -399,7 +399,7 @@ MonoBehaviour:
   playerTeam: 0
   healthBar: {fileID: 2267718276743583499}
   maxHealth: 100
---- !u!114 &4727035284686776872
+--- !u!114 &967119897768203474
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -408,10 +408,9 @@ MonoBehaviour:
   m_GameObject: {fileID: 4638371793851580318}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: f108213af09f6cb4a9e9235637799ce6, type: 3}
+  m_Script: {fileID: 11500000, guid: f4dd96884b7e7a445b6a413a5198ee3f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: '::'
-  disablerExceptions: []
 --- !u!114 &6304692561533267519
 MonoBehaviour:
   m_ObjectHideFlags: 0
