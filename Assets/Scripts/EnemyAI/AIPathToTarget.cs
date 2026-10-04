@@ -101,10 +101,19 @@ public class AIPathToTarget : MonoBehaviour
 
     private void FixedUpdate()
     {
-        //Debug.Log(pathingState);
         if (targetTransform == null)
+        {
             pointTravel.StopMoving();
-        if (!isActive || targetTransform == null || !CustomUtilities.HasTimeElapsed(timeOfLastStateCheck, minTimeBetweenStateRechecks))
+            if (GameManager.playerIntance)
+                targetTransform = GameManager.playerIntance.transform;
+        }
+        if (!pathfindingManager)
+        {
+            if (GameManager.pathfindingInstance)
+                pathfindingManager = GameManager.pathfindingInstance;
+        }
+
+        if (!isActive || !targetTransform || !pathfindingManager || !CustomUtilities.HasTimeElapsed(timeOfLastStateCheck, minTimeBetweenStateRechecks))
             return;
 
         //Debug.Log("StateCheck");

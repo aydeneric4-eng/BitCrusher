@@ -7,6 +7,7 @@ public static class GameManager
 {
     private static int score = 0;
     public static PlayerManager playerIntance;
+    public static AStarManager pathfindingInstance;
 
     public static event Action<int> scoreUpdated;
 

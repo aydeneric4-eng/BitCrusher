@@ -21,6 +21,11 @@ public class AStarManager : MonoBehaviour
         selfTilemap = GetComponent<Tilemap>();
     }
 
+    private void Start()
+    {
+        GameManager.pathfindingInstance = this;
+    }
+
     private float GetDistanceScore(TileAStarData tile, TileAStarData target, float offset = 0)
     {
         return (selfTilemap.CellToWorld(tile.selfPos) - selfTilemap.CellToWorld(target.selfPos)).magnitude + offset;
