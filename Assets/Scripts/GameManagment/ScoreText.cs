@@ -11,7 +11,7 @@ public class ScoreText : MonoBehaviour
     private void Awake()
     {
         selfTMP = GetComponent<TMP_Text>();
-        GameManager.scoreUpdated += OnScoreUpdated;
+        GameManager.Instance.scoreUpdated += OnScoreUpdated;
 
         selfTMP.text = prefixText + "0";
     }

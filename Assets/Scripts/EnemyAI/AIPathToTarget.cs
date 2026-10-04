@@ -104,13 +104,13 @@ public class AIPathToTarget : MonoBehaviour
         if (targetTransform == null)
         {
             pointTravel.StopMoving();
-            if (GameManager.playerIntance)
-                targetTransform = GameManager.playerIntance.transform;
+            if (GameManager.Instance.playerIntance)
+                targetTransform = GameManager.Instance.playerIntance.transform;
         }
         if (!pathfindingManager)
         {
-            if (GameManager.pathfindingInstance)
-                pathfindingManager = GameManager.pathfindingInstance;
+            if (GameManager.Instance.pathfindingInstance)
+                pathfindingManager = GameManager.Instance.pathfindingInstance;
         }
 
         if (!isActive || !targetTransform || !pathfindingManager || !CustomUtilities.HasTimeElapsed(timeOfLastStateCheck, minTimeBetweenStateRechecks))

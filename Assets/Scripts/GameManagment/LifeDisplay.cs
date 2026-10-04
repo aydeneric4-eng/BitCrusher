@@ -13,8 +13,8 @@ public class LifeDisplay : MonoBehaviour
 
     private void Awake()
     {
-        GameManager.playerLivesUpdated += UpdateIcons;
-        UpdateIcons(GameManager.playerLives);
+        GameManager.Instance.playerLivesUpdated += UpdateIcons;
+        UpdateIcons(3);
     }
 
     private void UpdateIcons(int newValue)

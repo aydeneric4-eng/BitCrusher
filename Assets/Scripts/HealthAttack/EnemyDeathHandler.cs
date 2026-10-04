@@ -15,7 +15,7 @@ public class EnemyDeathHandler : MonoBehaviour, IHandlesDeath
 
     public void Die()
     {
-        GameManager.AddScore(scoreReward);
+        GameManager.Instance.AddScore(scoreReward);
         Destroy(gameObject);
     }
 

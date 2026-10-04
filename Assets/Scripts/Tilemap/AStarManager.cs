@@ -23,7 +23,7 @@ public class AStarManager : MonoBehaviour
 
     private void Start()
     {
-        GameManager.pathfindingInstance = this;
+        GameManager.Instance.pathfindingInstance = this;
     }
 
     private float GetDistanceScore(TileAStarData tile, TileAStarData target, float offset = 0)

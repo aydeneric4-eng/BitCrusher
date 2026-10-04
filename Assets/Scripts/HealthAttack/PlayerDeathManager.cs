@@ -13,8 +13,8 @@ public class PlayerDeathManager : MonoBehaviour
 
     public void Die()
     {
-        GameManager.ReducePlayerLives(-1);
-        if (GameManager.playerLives < 1)
+        GameManager.Instance.ReducePlayerLives(-1);
+        if (GameManager.Instance.playerLives < 1)
         {
             Destroy(gameObject);
         }

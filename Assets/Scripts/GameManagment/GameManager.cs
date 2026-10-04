@@ -3,29 +3,54 @@ using UnityEngine;
 using UnityEngine.SocialPlatforms.Impl;
 using System;
 
-public static class GameManager
+public class GameManager : MonoBehaviour
 {
-    private static int score = 0;
-    public static int playerLives { get; private set; } = 3;
+    private static GameManager instance;
+    public static GameManager Instance 
+    { 
+        get 
+        {
+            if (!instance)
+            {
+                instance = new GameObject().AddComponent<GameManager>();
+            }
+            return instance;
+        } 
+    }
+    private void Awake()
+    {
+        if (instance != null && instance != this)
+        {
+            Destroy(gameObject);
+            return;
+        }
+
+        instance = this;
+        DontDestroyOnLoad(gameObject);
+    }
+
+
+    private int score = 0;
+    public int playerLives { get; private set; } = 3;
     private const int MaxPlayerLives = 3;
-    public static PlayerManager playerIntance;
-    public static AStarManager pathfindingInstance;
+    public PlayerManager playerIntance;
+    public AStarManager pathfindingInstance;
 
-    public static event Action<int> scoreUpdated;
-    public static event Action<int> playerLivesUpdated;
+    public event Action<int> scoreUpdated;
+    public event Action<int> playerLivesUpdated;
 
-    public static void ResetScore()
+    public void ResetScore()
     {
         score = 0;
         scoreUpdated.Invoke(score);
     }
-    public static void AddScore(int value)
+    public void AddScore(int value)
     {
         score += value;
         scoreUpdated?.Invoke(score);
     }
 
-    public static void ReducePlayerLives(int amount = -1)
+    public void ReducePlayerLives(int amount = -1)
     {
         playerLives = Mathf.Clamp(playerLives + amount, 0, MaxPlayerLives);
         playerLivesUpdated?.Invoke(playerLives);
