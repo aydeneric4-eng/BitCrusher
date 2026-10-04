@@ -2,17 +2,19 @@ using UnityEngine;
 
 [RequireComponent(typeof(PlayerManager))]
 [RequireComponent(typeof(HealthTracker))]
-public class PlayerDeathManager : MonoBehaviour
+public class PlayerDeathManager : MonoBehaviour, IHandlesDeath
 {
     private HealthTracker selfHPTracker;
     private void Awake()
     {
         selfHPTracker = GetComponent<HealthTracker>();
-        selfHPTracker.healthAtZero += Die;
+        selfHPTracker.healthAtZero += DeathCoupler;
     }
-
-    public void Die()
+    public void DeathCoupler() => Die();
+    public void Die(bool superDie = false)
     {
+        if (superDie)
+            GameManager.Instance.ReducePlayerLives(-999);
         GameManager.Instance.ReducePlayerLives(-1);
         if (GameManager.Instance.playerLives < 1)
         {

@@ -239,7 +239,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 99f19b60431c4bc43bcaa71c81eb7c7e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::MeleeKnockback
-  knockbackPower: 30
+  knockbackPower: 20
 --- !u!114 &1631931063909341181
 MonoBehaviour:
   m_ObjectHideFlags: 0

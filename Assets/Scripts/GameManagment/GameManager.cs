@@ -29,7 +29,7 @@ public class GameManager : MonoBehaviour
         DontDestroyOnLoad(gameObject);
     }
 
-
+    public int currentLevel = 1;
     private int score = 0;
     public int playerLives { get; private set; } = 3;
     private const int MaxPlayerLives = 3;

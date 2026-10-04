@@ -37,6 +37,9 @@ public class Bullet : MonoBehaviour, IHasTeam
 
     private void handleCollision(RaycastHit2D hitData)
     {
+        if (hitData.collider.isTrigger)
+            return;
+
         GameObject collidedObject = hitData.collider.gameObject;
 
         if (collidedObject.TryGetComponent<IReceivesKnockback>(out IReceivesKnockback KBReceiver) && giveKnockback)

@@ -2,5 +2,5 @@ using UnityEngine;
 
 public interface IHandlesDeath
 {
-    void Die();
+    void Die(bool superDie = false);
 }

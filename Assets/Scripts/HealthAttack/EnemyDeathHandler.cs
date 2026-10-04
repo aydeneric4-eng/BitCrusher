@@ -10,10 +10,11 @@ public class EnemyDeathHandler : MonoBehaviour, IHandlesDeath
     private void Awake()
     {
         selfHPTracker = GetComponent<HealthTracker>();
-        selfHPTracker.healthAtZero += Die;
+        selfHPTracker.healthAtZero += DeathCoupler;
     }
 
-    public void Die()
+    public void DeathCoupler() => Die();
+    public void Die(bool superDie = false)
     {
         GameManager.Instance.AddScore(scoreReward);
         Destroy(gameObject);

@@ -13,12 +13,9 @@ public class EnemySpawner : MonoBehaviour
     private void Awake()
     {
         _boxCollider = GetComponent<BoxCollider2D>();
-    }
-    
-    private void Update()
-    {
         SpawnEnemies();
     }
+
     public void SetupSpawner()
     {
         spawnPositions = new List<Vector3>();
@@ -42,6 +39,8 @@ public class EnemySpawner : MonoBehaviour
         for (int i = 0; i < numberToSpawn && spawnPositions.Count > 0; i++)
         {
             Vector3 pos = spawnPositions[UnityEngine.Random.Range(0, spawnPositions.Count - 1)];
+            spawnPositions.Remove(pos);
+            Instantiate(enemyToSpawn.enemyPrefab, pos, Quaternion.identity);
         }
 
         spawnPositions = new List<Vector3>();
