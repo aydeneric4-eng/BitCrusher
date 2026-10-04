@@ -1,0 +1,16 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 65771a59077f36a4993cd6f8a9bc4465, type: 3}
+  m_Name: MeleeEnemy
+  m_EditorClassIdentifier: Assembly-CSharp::EnemySpawnInfo
+  enemyPrefab: {fileID: 2987963101055509274, guid: 7fe42dc8587340041acbc797fe599318, type: 3}
+  enemyCellSize: 1
