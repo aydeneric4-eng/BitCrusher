@@ -22,6 +22,13 @@ public class OrbitAnchorAndAimAtTarget : MonoBehaviour
 
     private void FixedUpdate()
     {
+        if (!isTargetMouse && targetTransform == null)
+        {
+            selfTransform.localPosition = Vector3.zero;
+            return;
+        }
+
+
         if (isTargetMouse)
         {
             if (Mouse.current != null)

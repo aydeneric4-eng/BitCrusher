@@ -107,6 +107,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: '::'
   playerTeam: 0
   moveSpeed: 15
-  damage: 50
+  damage: 20
   giveKnockback: 1
   knockbackPower: 10
