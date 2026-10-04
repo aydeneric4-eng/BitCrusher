@@ -16,10 +16,12 @@ public class Bullet : MonoBehaviour, IHasTeam
     [SerializeField] float knockbackPower = 20f;
 
     private Transform selfTransform;
+    private SpriteRenderer selfRenderer;
 
     private void Awake()
     {
         selfTransform = GetComponent<Transform>();
+        selfRenderer = GetComponent<SpriteRenderer>();
     }
 
     private void FixedUpdate()
@@ -50,6 +52,10 @@ public class Bullet : MonoBehaviour, IHasTeam
             }
             damageHandler.Damage(damage);
         }
-        Destroy(gameObject);
+
+        if (selfRenderer)
+            selfRenderer.enabled = false;
+        Destroy(this);
+        Destroy(gameObject, 0.25f);
     }
 }

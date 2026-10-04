@@ -102,6 +102,8 @@ public class AIPathToTarget : MonoBehaviour
     private void FixedUpdate()
     {
         //Debug.Log(pathingState);
+        if (targetTransform == null)
+            pointTravel.StopMoving();
         if (!isActive || targetTransform == null || !CustomUtilities.HasTimeElapsed(timeOfLastStateCheck, minTimeBetweenStateRechecks))
             return;
 
