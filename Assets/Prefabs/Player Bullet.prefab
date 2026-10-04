@@ -110,7 +110,7 @@ MonoBehaviour:
   moveSpeed: 15
   damage: 20
   giveKnockback: 1
-  knockbackPower: 10
+  knockbackPower: 8
 --- !u!96 &753189567177883381
 TrailRenderer:
   serializedVersion: 4
@@ -158,7 +158,7 @@ TrailRenderer:
   m_GlobalIlluminationMeshLod: 0
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: 0
+  m_SortingOrder: -1
   m_MaskInteraction: 0
   m_Time: 0.1
   m_PreviewTimeScale: 1
