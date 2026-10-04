@@ -143,7 +143,7 @@ public class AStarManager : MonoBehaviour
             return null;
         }
 
-        
+        finalPath.Reverse();
         return finalPath;
     }
 

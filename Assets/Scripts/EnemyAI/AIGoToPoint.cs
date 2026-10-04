@@ -9,9 +9,12 @@ public class AIGoToPoint : MonoBehaviour
     [SerializeField] public float minDistanceToTarget = 0.5f;
     [SerializeField] bool active = false;
 
+    private bool isChasing = false;
+
     private RBMovement selfRBM;
 
     private Vector3 targetPosition;
+    private Transform chaseTransform;
 
     public event Action reachedTarget;
 
@@ -28,17 +31,40 @@ public class AIGoToPoint : MonoBehaviour
             return value;
     }
 
+    public void StopMoving()
+    {
+        isChasing = false;
+        active = false;
+        selfRBM.inputMovementVector = Vector3.zero;
+    }
+
     public void GoToPoint(Vector3 position)
     {
+        //Debug.Log("Now going to point");
+        isChasing = false;
         targetPosition = position;
+        active = true;
+    }
+
+    public void ChaseTarget(Transform targetTransform)
+    {
+        //Debug.Log("Now chasing target");
+        chaseTransform = targetTransform;
+        isChasing = true;
         active = true;
     }
 
     private void FixedUpdate()
     {
+        if (isChasing)
+        {
+            targetPosition = chaseTransform.position;
+        }
+
         if ((transform.position - targetPosition).magnitude < minDistanceToTarget && active)
         {
-            active = false;
+           if (!isChasing)
+                active = false;
             selfRBM.inputMovementVector = Vector3.zero;
             reachedTarget.Invoke();
         }
@@ -49,5 +75,12 @@ public class AIGoToPoint : MonoBehaviour
             inputVect = new Vector3(IsValueOutOfRange(inputVect.x, maxVectComponentDifference), IsValueOutOfRange(inputVect.y, maxVectComponentDifference), 0);
             selfRBM.inputMovementVector = inputVect;
         }
+    }
+
+    private void OnDrawGizmos()
+    {
+        return;
+        Gizmos.color = Color.green;
+        Gizmos.DrawLine(transform.position, targetPosition);
     }
 }

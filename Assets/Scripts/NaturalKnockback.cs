@@ -24,7 +24,7 @@ public class NaturalKnockback : MonoBehaviour
 
         if (!(!colliderCanGiveKnockback || allwaysGiveSelfKnockback))
             return;
-        Debug.Log(colliderCanGiveKnockback);
+        //Debug.Log(colliderCanGiveKnockback);
         collisionAverageNormal = Vector2.zero;
         foreach (ContactPoint2D contact in collision.contacts)
         {
