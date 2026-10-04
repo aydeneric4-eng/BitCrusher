@@ -4643,6 +4643,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8da9973c55fdbc14295bfbdb17f570c8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: '::'
+  enemySpawners:
+  - {fileID: 1652463334}
 --- !u!4 &243823797
 Transform:
   m_ObjectHideFlags: 0
@@ -4655,7 +4657,8 @@ Transform:
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
-  m_Children: []
+  m_Children:
+  - {fileID: 1652463337}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &391853221
@@ -16266,12 +16269,12 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1652463333}
   serializedVersion: 2
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 1.98, y: 2.01, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
-  m_Father: {fileID: 0}
+  m_Father: {fileID: 243823797}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1790511703
 GameObject:
@@ -16964,6 +16967,5 @@ SceneRoots:
   - {fileID: 1338897075}
   - {fileID: 1611665164}
   - {fileID: 5673593277406157406}
-  - {fileID: 1652463337}
   - {fileID: 243823797}
   - {fileID: 1820705693}

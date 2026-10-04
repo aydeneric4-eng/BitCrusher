@@ -1,0 +1,22 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7ac9253ddc2e3724c98e6ea01025ccba, type: 3}
+  m_Name: Lv2
+  m_EditorClassIdentifier: Assembly-CSharp::LevelSpawnSettings
+  levelRequierment: 1
+  enemyTypes:
+  - {fileID: 11400000, guid: e8f03426bc5179549910bb2404d365f4, type: 2}
+  minNumberToSpawn: 03000000
+  maxNumberToSpawn: 03000000
+  chanceOfSpawn: 01000000
+  minTotalEnemies: 3
+  maxTotalEnemies: 3

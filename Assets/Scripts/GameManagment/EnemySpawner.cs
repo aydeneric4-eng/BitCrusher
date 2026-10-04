@@ -5,17 +5,22 @@ using System;
 [RequireComponent(typeof(BoxCollider2D))]
 public class EnemySpawner : MonoBehaviour
 {
-    [SerializeField] EnemySpawnInfo enemyToSpawn;
-    [SerializeField] int numberToSpawn;
+    private Dictionary<EnemySpawnInfo, int> enemiesToSpawn;
     private BoxCollider2D _boxCollider;
     private List<Vector3> spawnPositions = new List<Vector3>();
+
+    public event Action<GameObject> spawnedEnemy;
 
     private void Awake()
     {
         _boxCollider = GetComponent<BoxCollider2D>();
-        SpawnEnemies();
     }
 
+    public int GetMaxSpawnCount()
+    {
+        SetupSpawner();
+        return spawnPositions.Count;
+    }
     public void SetupSpawner()
     {
         spawnPositions = new List<Vector3>();
@@ -32,17 +37,26 @@ public class EnemySpawner : MonoBehaviour
             }
         }
     }
+    public void QueueSpawn(EnemySpawnInfo enemyInfo, int numToSpawn)
+    {
+        if (enemiesToSpawn.ContainsKey(enemyInfo))
+            enemiesToSpawn[enemyInfo] += numToSpawn;
+        else
+            enemiesToSpawn.Add(enemyInfo, numToSpawn);
+    }
     public void SpawnEnemies()
     {
         SetupSpawner();
 
-        for (int i = 0; i < numberToSpawn && spawnPositions.Count > 0; i++)
+        foreach (EnemySpawnInfo enemyInfo in enemiesToSpawn.Keys)
         {
-            Vector3 pos = spawnPositions[UnityEngine.Random.Range(0, spawnPositions.Count - 1)];
-            spawnPositions.Remove(pos);
-            Instantiate(enemyToSpawn.enemyPrefab, pos, Quaternion.identity);
+            for (int i = 0; i < enemiesToSpawn[enemyInfo] && spawnPositions.Count > 0; i++)
+            {
+                Vector3 pos = spawnPositions[UnityEngine.Random.Range(0, spawnPositions.Count - 1)];
+                spawnPositions.Remove(pos);
+                spawnedEnemy?.Invoke(Instantiate(enemyInfo.enemyPrefab, pos, Quaternion.identity));
+            }
         }
-
         spawnPositions = new List<Vector3>();
     }
 
