@@ -105,7 +105,7 @@ public class AIPathToTarget : MonoBehaviour
         if (!isActive || targetTransform == null || !CustomUtilities.HasTimeElapsed(timeOfLastStateCheck, minTimeBetweenStateRechecks))
             return;
 
-        Debug.Log("StateCheck");
+        //Debug.Log("StateCheck");
         timeOfLastStateCheck = Time.time;
         float distFromTarget = (transform.position - targetTransform.position).magnitude;
         if (distFromTarget < chaseMinDistToTarget || (distFromTarget < maxDistanceFromTarget && pathingState == PathingStates.idle))
@@ -124,37 +124,35 @@ public class AIPathToTarget : MonoBehaviour
 
     private void OnDrawGizmos()
     {
-        return;
-        if (pathingState == PathingStates.aStarNavigation)
-        {
-            if (pathNodes == null)
-                return;
-            if (pathNodes.Count < 2)
-                return;
+        //if (pathingState == PathingStates.aStarNavigation)
+        //{
+        //    if (pathNodes == null)
+        //        return;
+        //    if (pathNodes.Count < 2)
+        //        return;
 
-            Gizmos.color = Color.red;
+        //    Gizmos.color = Color.red;
 
-            for (int i = 1; i < pathNodes.Count; i++)
-            {
-                //Debug.Log("DrawL");
-                //Debug.Log(i);
-                //Debug.Log(path.Count);
+        //    for (int i = 1; i < pathNodes.Count; i++)
+        //    {
+        //        //Debug.Log("DrawL");
+        //        //Debug.Log(i);
+        //        //Debug.Log(path.Count);
 
-                if (i < 0 || i > pathNodes.Count)
-                {
-                    Debug.LogWarning("wtf i ???");
-                    return;
-                }
-                //Debug.Log("DRAW COORDS");
-                //Debug.Log(path[i]);
-                //Debug.Log(path[i - 1]);
-                Gizmos.DrawLine(pathNodes[i - 1], pathNodes[i]);
-            }
-        }
-        else if (pathingState == PathingStates.directChase)
-        {
-            Gizmos.DrawLine(transform.position, targetTransform.position);
-        }
+        //        if (i < 0 || i > pathNodes.Count)
+        //        {
+        //            Debug.LogWarning("wtf i ???");
+        //            return;
+        //        }
+        //        //Debug.Log("DRAW COORDS");
+        //        //Debug.Log(path[i]);
+        //        //Debug.Log(path[i - 1]);
+        //        Gizmos.DrawLine(pathNodes[i - 1], pathNodes[i]);
+        //    }
+        //}
+        //else if (pathingState == PathingStates.directChase)
+        //{
+        //    Gizmos.DrawLine(transform.position, targetTransform.position);
+        //}
     }
-
 }

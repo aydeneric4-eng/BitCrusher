@@ -23,9 +23,9 @@ public class HealthTracker : MonoBehaviour, IDamagable, IHasTeam
     public void Damage(float damage)
     {
         currentHealth -= damage;
-        if (currentHealth < 0)
+        currentHealth = Mathf.Clamp(currentHealth, 0, maxHealth);
+        if (currentHealth <= 0)
         {
-            currentHealth = 0;
             deathHandler.KillThisObject();
         }
     }

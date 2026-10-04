@@ -9,7 +9,7 @@ using UnityEngine.Tilemaps;
 [RequireComponent(typeof(Tilemap))]
 public class TilemapTileData : MonoBehaviour
 {
-    public Dictionary<Vector3Int, TileAStarData> tilemapData = new Dictionary<Vector3Int, TileAStarData>();
+    [System.NonSerialized] public Dictionary<Vector3Int, TileAStarData> tilemapData = new Dictionary<Vector3Int, TileAStarData>();
     private Tilemap selfTilemap;
 
     private void Awake()

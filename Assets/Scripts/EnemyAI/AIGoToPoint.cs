@@ -79,8 +79,7 @@ public class AIGoToPoint : MonoBehaviour
 
     private void OnDrawGizmos()
     {
-        return;
-        Gizmos.color = Color.green;
-        Gizmos.DrawLine(transform.position, targetPosition);
+        //Gizmos.color = Color.green;
+        //Gizmos.DrawLine(transform.position, targetPosition);
     }
 }
