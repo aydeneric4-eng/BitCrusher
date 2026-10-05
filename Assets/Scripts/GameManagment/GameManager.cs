@@ -52,7 +52,7 @@ public class GameManager : MonoBehaviour
     }
 
     public int currentLevel = 1;
-    private int score = 0;
+    public int score = 0;
     public int playerLives { get; private set; } = 3;
     private const int MaxPlayerLives = 3;
     public PlayerManager playerIntance;
