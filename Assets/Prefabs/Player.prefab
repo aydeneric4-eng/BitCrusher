@@ -379,7 +379,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: '::'
   maxMoveSpeed: 8
-  maxOverspeed: 100
+  maxOverspeed: 50
   acceleration: 1.5
   deacceleration: 0.5
   overspeedDeacceleration: 3

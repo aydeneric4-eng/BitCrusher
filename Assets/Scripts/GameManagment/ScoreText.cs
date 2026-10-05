@@ -19,7 +19,6 @@ public class ScoreText : MonoBehaviour
     {
         selfTMP.text = prefixText + newScore.ToString();
     }
-
     private void OnDestroy()
     {
         if (GameManager.Instance != null)

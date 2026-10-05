@@ -9,11 +9,15 @@ public class GameManager : MonoBehaviour
 {
     [SerializeField] GameScenes gameScenes;
 
+    private static bool isQuitting = false;
+
     private static GameManager instance;
     public static GameManager Instance 
     { 
         get 
         {
+            if (isQuitting)
+                return null;
             if (!instance)
             {
                 instance = new GameObject().AddComponent<GameManager>();
@@ -33,6 +37,18 @@ public class GameManager : MonoBehaviour
         instance = this;
         gameScenes = UnityEngine.Resources.Load<GameScenes>("GameScenes"); // SCREW U UNITYYYYYYYYYYYYY
         DontDestroyOnLoad(gameObject);
+        isQuitting = false;
+        Application.quitting += onQuitting;
+    }
+
+    private static void onQuitting() 
+    {
+        isQuitting = true;
+    }
+
+    private void OnDestroy()
+    {
+        isQuitting = false;
     }
 
     public int currentLevel = 1;
@@ -89,6 +105,7 @@ public class GameManager : MonoBehaviour
         }
         score = 0;
         currentLevel = 1;
+        playerLives = MaxPlayerLives;
         SceneManager.LoadScene(gameScenes.layouts[UnityEngine.Random.Range(0,gameScenes.layouts.Count-1)].name);
     }
     public void GotoNextLevel()

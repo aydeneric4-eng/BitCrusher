@@ -290,7 +290,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::RBMovement
   maxMoveSpeed: 5
-  maxOverspeed: 100
+  maxOverspeed: 50
   acceleration: 1
   deacceleration: 0.8
   overspeedDeacceleration: 3
