@@ -9,11 +9,12 @@ public class EnemySpawningManager : MonoBehaviour
     [SerializeField] List<LevelSpawnSettings> levelSettings = new List<LevelSpawnSettings>();
     [SerializeField] List<GameObject> activeEnemies = new List<GameObject>();
 
-    [SerializeField] float minTimeBetweenSpawnWaves = 3f;
-    [SerializeField] float maxTimeBetweenSpawnWaves = 8f;
+    [SerializeField] float minTimeBetweenSpawnWaves = 5f;
+    [SerializeField] float maxTimeBetweenSpawnWaves = 20f;
+    private float timeSinceLastWave = -99f;
 
-    private Dictionary<EnemySpawnInfo, int> enemiesToSpawn;
-    private int maxEnemiesPerWave;
+    private Dictionary<EnemySpawnInfo, int> enemiesToSpawn = new Dictionary<EnemySpawnInfo, int>();
+    //private int maxEnemiesPerWave;
 
     private LevelSpawnSettings currentLevelSettings;
 
@@ -25,16 +26,34 @@ public class EnemySpawningManager : MonoBehaviour
             enemySpawner.spawnedEnemy += AddEnemy;
         }
         SetLevelSettings();
+        SetUpWaves();
+        SpawnWave();
     }
+
+    private void FixedUpdate()
+    {
+        if (enemiesToSpawn.Count < 1 || enemySpawners.Count < 1)
+            return;
+
+        Debug.Log(activeEnemies.Count);
+        activeEnemies.RemoveAll(x => !x);
+        if (activeEnemies.Count < 1 && CustomUtilities.HasTimeElapsed(timeSinceLastWave, minTimeBetweenSpawnWaves) || CustomUtilities.HasTimeElapsed(timeSinceLastWave, maxTimeBetweenSpawnWaves))
+        {
+            SpawnWave();
+        }
+    }
+
     private void SetLevelSettings()
     {
         List<LevelSpawnSettings> sortedSettings = new List<LevelSpawnSettings>(levelSettings);
         sortedSettings.OrderBy(o => o.levelRequierment);
         currentLevelSettings = sortedSettings[0];
         sortedSettings.RemoveAt(0);
-        bool foundSettings = false;
-        while (!foundSettings)
+
+        while (true)
         {
+            if (sortedSettings.Count < 1)
+                break;
             if (sortedSettings[0].levelRequierment <= GameManager.Instance.currentLevel)
             {
                 currentLevelSettings = sortedSettings[0];
@@ -42,30 +61,57 @@ public class EnemySpawningManager : MonoBehaviour
             }
             else
             {
-                foundSettings = true;
                 break;
             }
         }
+        //Debug.Log(currentLevelSettings.levelRequierment);
+        //Debug.Log("Finished setting up lv settings");
     }
     private void SetUpWaves()
     {
-        maxEnemiesPerWave = 0;
-        foreach (EnemySpawner enemySpawner in enemySpawners)
-        {
-            maxEnemiesPerWave += enemySpawner.GetMaxSpawnCount();
-        }
+        int enemiesOfTypeToAdd;
         for (int i = 0; i < currentLevelSettings.enemyTypes.Count; i++)
         {
-            int enemiesOfTypeToAdd = UnityEngine.Random.Range(currentLevelSettings.minNumberToSpawn[i], currentLevelSettings.maxNumberToSpawn[i]);
-            enemiesToSpawn.Add(currentLevelSettings.enemyTypes[0], enemiesOfTypeToAdd);
+            enemiesOfTypeToAdd = Random.Range(currentLevelSettings.minNumberToSpawn[i], currentLevelSettings.maxNumberToSpawn[i] + 1);
+            //Debug.Log(enemiesOfTypeToAdd);
+            //Debug.Log(currentLevelSettings.minNumberToSpawn[i]);
+            //Debug.Log(currentLevelSettings.maxNumberToSpawn[i]);
+            enemiesToSpawn.Add(currentLevelSettings.enemyTypes[i], enemiesOfTypeToAdd);
+            //Debug.Log("ENEMY ADD LOOP");
         }
+        
+        //Debug.Log("Finished setting up waves");
     }
     private void SpawnWave()
     {
-        bool isWaveFull = false;
-        for (int i = 0; !isWaveFull && enemiesToSpawn.Count > 0; i++)
-        {
+        List<EnemySpawner> spawnersAvailable = new List<EnemySpawner>(enemySpawners);
+        //int enemiesQueued = 0;
+        EnemySpawner selectedSpawner;
+        EnemySpawnInfo selectedEnemy;
+        //Debug.Log("start quueing enemy spawns");
 
+        
+        for (int i = 0; spawnersAvailable.Count > 0 && enemiesToSpawn.Count > 0; i++)
+        {
+            selectedSpawner = spawnersAvailable[Random.Range(0, spawnersAvailable.Count - 1)];
+            selectedEnemy = enemiesToSpawn.Keys.ToList()[Random.Range(0, enemiesToSpawn.Keys.Count - 1)];
+
+            //Debug.Log("Quueing enemy spawn w/ spawner");
+            //Debug.Log(enemiesToSpawn[selectedEnemy]);
+            selectedSpawner.QueueSpawn(selectedEnemy, 1);
+            enemiesToSpawn[selectedEnemy] -= 1;
+            if (enemiesToSpawn[selectedEnemy] <= 0)
+                enemiesToSpawn.Remove(selectedEnemy);
+            if (selectedSpawner.IsSpawnQueueFull())
+                spawnersAvailable.Remove(selectedSpawner);
         }
+
+        foreach (EnemySpawner enemySpawner in enemySpawners)
+        {
+            enemySpawner.SpawnEnemies();
+        }
+
+        timeSinceLastWave = Time.time;
+        //Debug.Log("Finished spawning wave");
     }
 }

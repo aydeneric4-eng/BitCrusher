@@ -1,11 +1,12 @@
 using UnityEngine;
 using System.Collections.Generic;
 using System;
+using System.Linq;
 
 [RequireComponent(typeof(BoxCollider2D))]
 public class EnemySpawner : MonoBehaviour
 {
-    private Dictionary<EnemySpawnInfo, int> enemiesToSpawn;
+    private Dictionary<EnemySpawnInfo, int> enemiesToSpawn = new Dictionary<EnemySpawnInfo, int>();
     private BoxCollider2D _boxCollider;
     private List<Vector3> spawnPositions = new List<Vector3>();
 
@@ -14,12 +15,15 @@ public class EnemySpawner : MonoBehaviour
     private void Awake()
     {
         _boxCollider = GetComponent<BoxCollider2D>();
+        SetupSpawner();
     }
 
-    public int GetMaxSpawnCount()
+    public bool IsSpawnQueueFull()
     {
         SetupSpawner();
-        return spawnPositions.Count;
+        if (spawnPositions.Count > enemiesToSpawn.Values.Sum())
+            return false;
+        return true;
     }
     public void SetupSpawner()
     {
@@ -52,15 +56,18 @@ public class EnemySpawner : MonoBehaviour
         {
             for (int i = 0; i < enemiesToSpawn[enemyInfo] && spawnPositions.Count > 0; i++)
             {
+                //Debug.Log("Spawning enemy");
+                //Debug.Log(enemiesToSpawn[enemyInfo]);
                 Vector3 pos = spawnPositions[UnityEngine.Random.Range(0, spawnPositions.Count - 1)];
                 spawnPositions.Remove(pos);
                 spawnedEnemy?.Invoke(Instantiate(enemyInfo.enemyPrefab, pos, Quaternion.identity));
             }
         }
         spawnPositions = new List<Vector3>();
+        enemiesToSpawn = new Dictionary<EnemySpawnInfo, int>();
     }
 
-    private bool drawGizmos = true;
+    private bool drawGizmos = false;
     private void OnDrawGizmos()
     {
         if (!drawGizmos)

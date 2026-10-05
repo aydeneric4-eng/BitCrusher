@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7ac9253ddc2e3724c98e6ea01025ccba, type: 3}
   m_Name: Lv2
   m_EditorClassIdentifier: Assembly-CSharp::LevelSpawnSettings
-  levelRequierment: 1
+  levelRequierment: 2
   enemyTypes:
   - {fileID: 11400000, guid: e8f03426bc5179549910bb2404d365f4, type: 2}
   minNumberToSpawn: 03000000

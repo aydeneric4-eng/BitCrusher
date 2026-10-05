@@ -135,7 +135,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!212 &5156265
 SpriteRenderer:
   serializedVersion: 3
@@ -4645,6 +4645,13 @@ MonoBehaviour:
   m_EditorClassIdentifier: '::'
   enemySpawners:
   - {fileID: 1652463334}
+  levelSettings:
+  - {fileID: 11400000, guid: 4dff023c3d3bad94f98e73debbc8422f, type: 2}
+  - {fileID: 11400000, guid: cd9df45dcde7ac346acee97b00214a5c, type: 2}
+  - {fileID: 11400000, guid: e1428ef40c97d8e4696ce76d90bb246b, type: 2}
+  activeEnemies: []
+  minTimeBetweenSpawnWaves: 3
+  maxTimeBetweenSpawnWaves: 8
 --- !u!4 &243823797
 Transform:
   m_ObjectHideFlags: 0
@@ -4657,8 +4664,7 @@ Transform:
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
-  m_Children:
-  - {fileID: 1652463337}
+  m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &391853221
@@ -4797,7 +4803,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!212 &464358765
 SpriteRenderer:
   serializedVersion: 3
@@ -16153,8 +16159,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ef545f28b379f3947a9d058696d0de72, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::EnemySpawner
-  enemyToSpawn: {fileID: 11400000, guid: e8f03426bc5179549910bb2404d365f4, type: 2}
-  numberToSpawn: 5
 --- !u!61 &1652463335
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -16270,11 +16274,11 @@ Transform:
   m_GameObject: {fileID: 1652463333}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 1.98, y: 2.01, z: 0}
+  m_LocalPosition: {x: 2.04, y: 2.08, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
-  m_Father: {fileID: 243823797}
+  m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1790511703
 GameObject:
@@ -16292,7 +16296,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!212 &1790511704
 SpriteRenderer:
   serializedVersion: 3
@@ -16892,6 +16896,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Player Bullet
       objectReference: {fileID: 0}
+    - target: {fileID: 6175332214713372561, guid: 4d12dcbe49b8c6e40be547d0b4b48242, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -16949,6 +16957,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Enemy Melee
       objectReference: {fileID: 0}
+    - target: {fileID: 2987963101055509274, guid: 7fe42dc8587340041acbc797fe599318, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -16969,3 +16981,4 @@ SceneRoots:
   - {fileID: 5673593277406157406}
   - {fileID: 243823797}
   - {fileID: 1820705693}
+  - {fileID: 1652463337}
