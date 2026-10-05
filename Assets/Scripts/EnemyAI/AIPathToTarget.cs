@@ -84,6 +84,8 @@ public class AIPathToTarget : MonoBehaviour
             case (PathingStates.aStarNavigation):
                 {
                     pathNodes = pathfindingManager.GetPath(transform.position, targetTransform.position);
+                    if (pathNodes == null)
+                        return;
                     pointTravel.minDistanceToTarget = navigationMinDistToPoint;
                     pointTravel.GoToPoint(pathNodes[0]);
                     pathNodes.RemoveAt(0);

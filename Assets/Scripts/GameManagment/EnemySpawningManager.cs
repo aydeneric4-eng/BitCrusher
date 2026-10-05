@@ -12,6 +12,7 @@ public class EnemySpawningManager : MonoBehaviour
     [SerializeField] float minTimeBetweenSpawnWaves = 5f;
     [SerializeField] float maxTimeBetweenSpawnWaves = 20f;
     private float timeSinceLastWave = -99f;
+    private float timeSinceLastEnemy = -99f;
 
     private Dictionary<EnemySpawnInfo, int> enemiesToSpawn = new Dictionary<EnemySpawnInfo, int>();
     //private int maxEnemiesPerWave;
@@ -35,9 +36,11 @@ public class EnemySpawningManager : MonoBehaviour
         if (enemiesToSpawn.Count < 1 || enemySpawners.Count < 1)
             return;
 
-        Debug.Log(activeEnemies.Count);
+        float c = activeEnemies.Count;
         activeEnemies.RemoveAll(x => !x);
-        if (activeEnemies.Count < 1 && CustomUtilities.HasTimeElapsed(timeSinceLastWave, minTimeBetweenSpawnWaves) || CustomUtilities.HasTimeElapsed(timeSinceLastWave, maxTimeBetweenSpawnWaves))
+        if (c != activeEnemies.Count)
+            timeSinceLastEnemy = Time.time;
+        if (activeEnemies.Count < 1 && CustomUtilities.HasTimeElapsed(timeSinceLastEnemy, minTimeBetweenSpawnWaves) || CustomUtilities.HasTimeElapsed(timeSinceLastWave, maxTimeBetweenSpawnWaves))
         {
             SpawnWave();
         }
@@ -93,8 +96,8 @@ public class EnemySpawningManager : MonoBehaviour
         
         for (int i = 0; spawnersAvailable.Count > 0 && enemiesToSpawn.Count > 0; i++)
         {
-            selectedSpawner = spawnersAvailable[Random.Range(0, spawnersAvailable.Count - 1)];
-            selectedEnemy = enemiesToSpawn.Keys.ToList()[Random.Range(0, enemiesToSpawn.Keys.Count - 1)];
+            selectedSpawner = spawnersAvailable[Random.Range(0, spawnersAvailable.Count)];
+            selectedEnemy = enemiesToSpawn.Keys.ToList()[Random.Range(0, enemiesToSpawn.Keys.Count )];
 
             //Debug.Log("Quueing enemy spawn w/ spawner");
             //Debug.Log(enemiesToSpawn[selectedEnemy]);

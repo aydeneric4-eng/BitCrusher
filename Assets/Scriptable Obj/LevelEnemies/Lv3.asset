@@ -15,8 +15,9 @@ MonoBehaviour:
   levelRequierment: 3
   enemyTypes:
   - {fileID: 11400000, guid: e8f03426bc5179549910bb2404d365f4, type: 2}
-  minNumberToSpawn: 0a000000
-  maxNumberToSpawn: 0a000000
+  - {fileID: 11400000, guid: d6e588e9dd045d84aa8e5ffbae5a39eb, type: 2}
+  minNumberToSpawn: 0600000004000000
+  maxNumberToSpawn: 0600000004000000
   chanceOfSpawn: 01000000
   minTotalEnemies: 4
   maxTotalEnemies: 5
