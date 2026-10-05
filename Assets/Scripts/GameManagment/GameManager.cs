@@ -17,6 +17,7 @@ public class GameManager : MonoBehaviour
             if (!instance)
             {
                 instance = new GameObject().AddComponent<GameManager>();
+                instance.gameObject.name = "GameManager";
             }
             return instance;
         } 
@@ -98,8 +99,8 @@ public class GameManager : MonoBehaviour
             return;
         }
         currentLevel++;
-        Debug.Log("next leve");
-        Debug.Log(currentLevel);
+        //Debug.Log("next leve");
+        //Debug.Log(currentLevel);
         SceneManager.LoadScene(gameScenes.layouts[UnityEngine.Random.Range(0, gameScenes.layouts.Count - 1)].name);
     }
 }

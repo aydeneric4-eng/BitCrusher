@@ -13,8 +13,13 @@ public class LifeDisplay : MonoBehaviour
 
     private void Awake()
     {
+        
+    }
+
+    private void Start()
+    {
         GameManager.Instance.playerLivesUpdated += UpdateIcons;
-        UpdateIcons(3);
+        UpdateIcons(GameManager.Instance.playerLives);
     }
 
     private void UpdateIcons(int newValue)
@@ -24,6 +29,12 @@ public class LifeDisplay : MonoBehaviour
         if (icons.Count < 1)
             return;
 
+        //Debug.Log("###icons###");
+        //Debug.Log(icons);
+        //Debug.Log(icons.Count);
+        //Debug.Log(onSprite);
+        //Debug.Log(offSprite);
+        //Debug.Log("###########");
         for (int i = 0; i < icons.Count; i++)
         {
             if (i <= currentLives - 1)
@@ -31,6 +42,12 @@ public class LifeDisplay : MonoBehaviour
             else
                 icons[i].sprite = offSprite;
         }
+    }
+
+    private void OnDestroy()
+    {
+        if (GameManager.Instance != null)
+            GameManager.Instance.playerLivesUpdated -= UpdateIcons;
     }
 
 }
