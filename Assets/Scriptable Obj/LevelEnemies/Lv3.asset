@@ -19,5 +19,4 @@ MonoBehaviour:
   minNumberToSpawn: 0600000004000000
   maxNumberToSpawn: 0600000004000000
   chanceOfSpawn: 01000000
-  minTotalEnemies: 4
-  maxTotalEnemies: 5
+  maxEnemiesPerWave: 4

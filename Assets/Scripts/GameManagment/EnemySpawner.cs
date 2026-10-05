@@ -67,7 +67,7 @@ public class EnemySpawner : MonoBehaviour
         enemiesToSpawn = new Dictionary<EnemySpawnInfo, int>();
     }
 
-    private bool drawGizmos = false;
+    private bool drawGizmos = true;
     private void OnDrawGizmos()
     {
         if (!drawGizmos)
