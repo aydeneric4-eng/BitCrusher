@@ -12,6 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: cda52d600b28be445ac05a160334cbb0, type: 3}
   m_Name: GameScenes
   m_EditorClassIdentifier: Assembly-CSharp::GameScenes
-  mainMenu: {}
-  gameOver: {}
-  layouts: []
+  mainMenu: {fileID: 102900000, guid: 3a3ea455dc5294044881e04982106ab0, type: 3}
+  gameOver: {fileID: 102900000, guid: d8e4ab2c16ea0a14d98905e711f7f224, type: 3}
+  layouts:
+  - {fileID: 102900000, guid: 3058ffb60aae2bd4d94a258ab7d2c257, type: 3}

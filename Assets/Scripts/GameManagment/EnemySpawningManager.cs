@@ -14,10 +14,15 @@ public class EnemySpawningManager : MonoBehaviour
     private float timeSinceLastWave = -99f;
     private float timeSinceLastEnemy = -99f;
 
+    [SerializeField] float minTimeBetweenLevelSwap = 5f;
+    private float timerstrt;
+
     private Dictionary<EnemySpawnInfo, int> enemiesToSpawn = new Dictionary<EnemySpawnInfo, int>();
     //private int maxEnemiesPerWave;
 
     private LevelSpawnSettings currentLevelSettings;
+
+    private bool finalWave = false;
 
     private void AddEnemy(GameObject enemy) => activeEnemies.Add(enemy);
     private void Start()
@@ -33,8 +38,6 @@ public class EnemySpawningManager : MonoBehaviour
 
     private void FixedUpdate()
     {
-        if (enemiesToSpawn.Count < 1 || enemySpawners.Count < 1)
-            return;
 
         float c = activeEnemies.Count;
         activeEnemies.RemoveAll(x => !x);
@@ -42,7 +45,14 @@ public class EnemySpawningManager : MonoBehaviour
             timeSinceLastEnemy = Time.time;
         if (activeEnemies.Count < 1 && CustomUtilities.HasTimeElapsed(timeSinceLastEnemy, minTimeBetweenSpawnWaves) || CustomUtilities.HasTimeElapsed(timeSinceLastWave, maxTimeBetweenSpawnWaves))
         {
-            SpawnWave();
+            if (enemiesToSpawn.Count < 1)
+            {
+                GameManager.Instance.GotoNextLevel();
+            }
+            else
+            {
+                SpawnWave();
+            }
         }
     }
 
@@ -114,6 +124,10 @@ public class EnemySpawningManager : MonoBehaviour
         }
 
         timeSinceLastWave = Time.time;
+        if (enemiesToSpawn.Count < 1)
+        {
+            finalWave = true;
+        }
         //Debug.Log("Finished spawning wave");
     }
 }

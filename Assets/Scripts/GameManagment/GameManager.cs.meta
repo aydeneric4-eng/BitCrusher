@@ -1,2 +1,14 @@
 fileFormatVersion: 2
 guid: f1ff7b4e86cfb6e419bb204cb15cd61b
+MonoImporter:
+  externalObjects: {}
+  serializedVersion: 2
+  defaultReferences:
+  - gameScenes: {fileID: 11400000, guid: 8481266026205e24699a22082bb45b28, type: 2}
+  - playerIntance: {instanceID: 0}
+  - pathfindingInstance: {instanceID: 0}
+  executionOrder: 0
+  icon: {instanceID: 0}
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

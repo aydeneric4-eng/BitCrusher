@@ -2,9 +2,13 @@ using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.SocialPlatforms.Impl;
 using System;
+using UnityEditor;
+using UnityEngine.SceneManagement;
 
 public class GameManager : MonoBehaviour
 {
+    [SerializeField] GameScenes gameScenes;
+
     private static GameManager instance;
     public static GameManager Instance 
     { 
@@ -26,10 +30,11 @@ public class GameManager : MonoBehaviour
         }
 
         instance = this;
+        gameScenes = UnityEngine.Resources.Load<GameScenes>("GameScenes"); // SCREW U UNITYYYYYYYYYYYYY
         DontDestroyOnLoad(gameObject);
     }
 
-    public int currentLevel = 3;
+    public int currentLevel = 1;
     private int score = 0;
     public int playerLives { get; private set; } = 3;
     private const int MaxPlayerLives = 3;
@@ -56,4 +61,45 @@ public class GameManager : MonoBehaviour
         playerLivesUpdated?.Invoke(playerLives);
     }
 
+    public void GotoMainMenu()
+    {
+        if (!gameScenes)
+        {
+            Debug.LogError("NO GAME SCENES");
+            return;
+        }
+        SceneManager.LoadScene(gameScenes.mainMenu.name);
+    }
+    public void GotoLossScreen()
+    {
+        if (!gameScenes)
+        {
+            Debug.LogError("NO GAME SCENES");
+            return;
+        }
+        SceneManager.LoadScene(gameScenes.gameOver.name);
+    }
+    public void StartGame()
+    {
+        if (!gameScenes)
+        {
+            Debug.LogError("NO GAME SCENES");
+            return;
+        }
+        score = 0;
+        currentLevel = 1;
+        SceneManager.LoadScene(gameScenes.layouts[UnityEngine.Random.Range(0,gameScenes.layouts.Count-1)].name);
+    }
+    public void GotoNextLevel()
+    {
+        if (!gameScenes)
+        {
+            Debug.LogError("NO GAME SCENES");
+            return;
+        }
+        currentLevel++;
+        Debug.Log("next leve");
+        Debug.Log(currentLevel);
+        SceneManager.LoadScene(gameScenes.layouts[UnityEngine.Random.Range(0, gameScenes.layouts.Count - 1)].name);
+    }
 }
