@@ -371,8 +371,8 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls:
       - m_Target: {fileID: 458338077}
-        m_TargetAssemblyTypeName: ExitGame, Assembly-CSharp
-        m_MethodName: QuitGame
+        m_TargetAssemblyTypeName: GotoTitle, Assembly-CSharp
+        m_MethodName: CallGoToTitle
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -429,9 +429,9 @@ MonoBehaviour:
   m_GameObject: {fileID: 458338072}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 9226efb20b7487643a8acd8b56132a06, type: 3}
+  m_Script: {fileID: 11500000, guid: bfbca0675f2068d409a5bfd913d84042, type: 3}
   m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::ExitGame
+  m_EditorClassIdentifier: Assembly-CSharp::GotoTitle
 --- !u!1 &496845472
 GameObject:
   m_ObjectHideFlags: 0
@@ -707,7 +707,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: '//Quit
+  m_text: '//Quit_To_Title
 
 '
   m_isRightToLeft: 0

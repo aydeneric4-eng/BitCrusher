@@ -16,8 +16,6 @@ public class EnemySpawningManager : MonoBehaviour
     private float timeSinceLastWave = -999f;
     private float timeSinceLastEnemy = -999f;
 
-    [SerializeField] float minTimeBetweenLevelSwap = 5f;
-    private float timerstrt;
 
     private Dictionary<EnemySpawnInfo, int> enemiesToSpawn = new Dictionary<EnemySpawnInfo, int>();
     //private int maxEnemiesPerWave;

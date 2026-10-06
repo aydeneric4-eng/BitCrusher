@@ -19,7 +19,7 @@ public class LifeDisplay : MonoBehaviour
 
     private void UpdateIcons(int newValue)
     {
-        Debug.Log(newValue);
+        //Debug.Log(newValue);
         currentLives = Mathf.Clamp(newValue, 0, icons.Count);
 
         if (icons.Count < 1)
