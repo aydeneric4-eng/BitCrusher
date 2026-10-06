@@ -14,5 +14,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::GameScenes
   mainMenu: {fileID: 102900000, guid: 3a3ea455dc5294044881e04982106ab0, type: 3}
   gameOver: {fileID: 102900000, guid: d8e4ab2c16ea0a14d98905e711f7f224, type: 3}
+  interlude: {fileID: 102900000, guid: ebd3a910b0715e64e9048bb3719999b0, type: 3}
   layouts:
   - {fileID: 102900000, guid: 3058ffb60aae2bd4d94a258ab7d2c257, type: 3}

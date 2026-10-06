@@ -11,11 +11,6 @@ public class LifeDisplay : MonoBehaviour
 
     private int currentLives = 3;
 
-    private void Awake()
-    {
-        
-    }
-
     private void Start()
     {
         GameManager.Instance.playerLivesUpdated += UpdateIcons;
@@ -24,6 +19,7 @@ public class LifeDisplay : MonoBehaviour
 
     private void UpdateIcons(int newValue)
     {
+        Debug.Log(newValue);
         currentLives = Mathf.Clamp(newValue, 0, icons.Count);
 
         if (icons.Count < 1)

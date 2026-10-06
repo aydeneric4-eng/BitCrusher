@@ -8,6 +8,7 @@ public class GameScenes : ScriptableObject
 {
     public SceneAsset mainMenu;
     public SceneAsset gameOver;
+    public SceneAsset interlude;
 
     public List<SceneAsset> layouts = new List<SceneAsset>();
 }

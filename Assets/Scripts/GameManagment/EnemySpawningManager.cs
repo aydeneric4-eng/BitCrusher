@@ -60,7 +60,7 @@ public class EnemySpawningManager : MonoBehaviour
         {
             if (enemiesToSpawn.Count < 1)
             {
-                GameManager.Instance.GotoNextLevel();
+                GameManager.Instance.GoToInterlude();
             }
             else
             {

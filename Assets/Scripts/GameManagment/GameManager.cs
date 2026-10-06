@@ -129,4 +129,14 @@ public class GameManager : MonoBehaviour
         //Debug.Log(currentLevel);
         SceneManager.LoadScene(gameScenes.layouts[UnityEngine.Random.Range(0, gameScenes.layouts.Count - 1)].name);
     }
+
+    public void GoToInterlude()
+    {
+        if (!gameScenes)
+        {
+            Debug.LogError("NO GAME SCENES");
+            return;
+        }
+        SceneManager.LoadScene(gameScenes.interlude.name);
+    }
 }
