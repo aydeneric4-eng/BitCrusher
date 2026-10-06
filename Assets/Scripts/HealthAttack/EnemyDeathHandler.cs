@@ -6,6 +6,7 @@ using System;
 public class EnemyDeathHandler : MonoBehaviour, IHandlesDeath
 {
     [SerializeField] int scoreReward = 100;
+    [SerializeField] ParticleSystem deathEffect;
     private HealthTracker selfHPTracker;
 
     //public event Action enemyHasDied;
@@ -21,6 +22,8 @@ public class EnemyDeathHandler : MonoBehaviour, IHandlesDeath
     {
         GameManager.Instance.AddScore(scoreReward);
         //enemyHasDied?.Invoke();
+        if (deathEffect)
+            deathEffect.Play();
         Destroy(gameObject);
     }
 
