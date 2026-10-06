@@ -1,4 +1,6 @@
 using System;
+using Unity.VisualScripting;
+using UnityEditor.Search;
 using UnityEngine;
 
 public class BulletShooter : MonoBehaviour
@@ -9,6 +11,7 @@ public class BulletShooter : MonoBehaviour
     [SerializeField] float rateOfFire = 1f;
     private float lastFiredTime = -999f;
 
+    [SerializeField] AudioClip shootSFX;
     public void ShootBullet()
     {
         if (!CustomUtilities.HasTimeElapsed(lastFiredTime,rateOfFire))
@@ -18,5 +21,9 @@ public class BulletShooter : MonoBehaviour
 
         lastFiredTime = Time.time;
         Bullet newBullet = Instantiate(bulletPrefab, muzzleTransform.position, muzzleTransform.rotation);
+        if (shootSFX)
+        {
+            GameManager.Instance.audioManager.PlaySFX(shootSFX);
+        }
     }
 }

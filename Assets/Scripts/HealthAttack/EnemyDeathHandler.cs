@@ -1,5 +1,6 @@
 using UnityEngine;
 using System;
+using Unity.VisualScripting;
 
 //[RequireComponent(typeof(EnemyM))]
 [RequireComponent(typeof(HealthTracker))]
@@ -10,6 +11,7 @@ public class EnemyDeathHandler : MonoBehaviour, IHandlesDeath
     private HealthTracker selfHPTracker;
 
     //public event Action enemyHasDied;
+    [SerializeField] AudioClip deathSFX;
 
     private void Awake()
     {
@@ -24,6 +26,8 @@ public class EnemyDeathHandler : MonoBehaviour, IHandlesDeath
         //enemyHasDied?.Invoke();
         if (deathEffect)
             deathEffect.Play();
+        if (deathSFX)
+            GameManager.Instance.audioManager.PlaySFX(deathSFX);
         Destroy(gameObject);
     }
 

@@ -11,6 +11,8 @@ public class HealthTracker : MonoBehaviour, IDamagable, IHasTeam
         set => playerTeam = value;
     }
 
+    [SerializeField] AudioClip hurtSFX;
+
     [SerializeField] ValueBar healthBar = null;
     [SerializeField] float maxHealth = 100;
     private float currentHealth;
@@ -42,6 +44,9 @@ public class HealthTracker : MonoBehaviour, IDamagable, IHasTeam
     {
         if (isInvincible)
             return;
+
+        if (hurtSFX)
+            GameManager.Instance.audioManager.PlaySFX(hurtSFX);
 
         currentHealth -= damage;
         currentHealth = Mathf.Clamp(currentHealth, 0, maxHealth);

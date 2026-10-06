@@ -84,9 +84,13 @@ public class RBMovement : MonoBehaviour, IReceivesKnockback
         return finalValue;
     }
 
+    [SerializeField] AudioClip KBSFX;
+
     private Vector3 queuedKB = Vector3.zero;
     public void ReceiveKnockback(Vector3 impulse)
     {
+        if (KBSFX)
+            GameManager.Instance.audioManager.PlaySFX(KBSFX);
         queuedKB += impulse;
     }
 

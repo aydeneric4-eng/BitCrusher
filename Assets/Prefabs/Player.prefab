@@ -384,6 +384,7 @@ MonoBehaviour:
   deacceleration: 0.5
   overspeedDeacceleration: 3
   inputMovementVector: {x: 0, y: 0, z: 0}
+  KBSFX: {fileID: 8300000, guid: dcc176e402e5d52469277b85bf492c18, type: 3}
 --- !u!114 &7303515402963308842
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -397,6 +398,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: '::'
   playerTeam: 0
+  hurtSFX: {fileID: 8300000, guid: 041e4aaef12f72a48ab64ab2be61d874, type: 3}
   healthBar: {fileID: 2267718276743583499}
   maxHealth: 100
 --- !u!114 &967119897768203474
@@ -438,6 +440,7 @@ MonoBehaviour:
   muzzleTransform: {fileID: 5942300592130091911}
   bulletPrefab: {fileID: 8773045771504193552, guid: 4d12dcbe49b8c6e40be547d0b4b48242, type: 3}
   rateOfFire: 0.25
+  shootSFX: {fileID: 8300000, guid: 5ad41669454460645a66a69c088e3887, type: 3}
 --- !u!114 &1408656526759089405
 MonoBehaviour:
   m_ObjectHideFlags: 0

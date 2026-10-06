@@ -56,7 +56,8 @@ public class GameManager : MonoBehaviour
     private const int MaxPlayerLives = 3;
     public PlayerManager playerIntance;
     public AStarManager pathfindingInstance;
-    
+    public AudioManager audioManager;
+
     public event Action<bool> enemyWaveEvent;
     public void TriggerEnemyWaveEvent(bool v)
     {
@@ -64,8 +65,6 @@ public class GameManager : MonoBehaviour
         //Debug.Log(v);
         enemyWaveEvent?.Invoke(v);
     }
-
-
 
     public event Action<int> scoreUpdated;
     public event Action<int> playerLivesUpdated;
@@ -115,7 +114,7 @@ public class GameManager : MonoBehaviour
         score = 0;
         currentLevel = 1;
         playerLives = MaxPlayerLives;
-        SceneManager.LoadScene(gameScenes.layouts[UnityEngine.Random.Range(0,gameScenes.layouts.Count-1)].name);
+        SceneManager.LoadScene(gameScenes.layouts[UnityEngine.Random.Range(0,gameScenes.layouts.Count)].name);
     }
     public void GotoNextLevel()
     {
@@ -127,7 +126,7 @@ public class GameManager : MonoBehaviour
         currentLevel++;
         //Debug.Log("next leve");
         //Debug.Log(currentLevel);
-        SceneManager.LoadScene(gameScenes.layouts[UnityEngine.Random.Range(0, gameScenes.layouts.Count - 1)].name);
+        SceneManager.LoadScene(gameScenes.layouts[UnityEngine.Random.Range(0, gameScenes.layouts.Count)].name);
     }
 
     public void GoToInterlude()
