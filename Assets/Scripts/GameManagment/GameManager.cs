@@ -40,7 +40,6 @@ public class GameManager : MonoBehaviour
         isQuitting = false;
         Application.quitting += onQuitting;
     }
-
     private static void onQuitting() 
     {
         isQuitting = true;
@@ -57,6 +56,16 @@ public class GameManager : MonoBehaviour
     private const int MaxPlayerLives = 3;
     public PlayerManager playerIntance;
     public AStarManager pathfindingInstance;
+    
+    public event Action<bool> enemyWaveEvent;
+    public void TriggerEnemyWaveEvent(bool v)
+    {
+        //Debug.Log("E WAVE EVENT!");
+        //Debug.Log(v);
+        enemyWaveEvent?.Invoke(v);
+    }
+
+
 
     public event Action<int> scoreUpdated;
     public event Action<int> playerLivesUpdated;
@@ -64,7 +73,7 @@ public class GameManager : MonoBehaviour
     public void ResetScore()
     {
         score = 0;
-        scoreUpdated.Invoke(score);
+        scoreUpdated?.Invoke(score);
     }
     public void AddScore(int value)
     {

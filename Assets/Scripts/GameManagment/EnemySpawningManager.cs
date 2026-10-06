@@ -1,7 +1,9 @@
 using UnityEngine;
 using System.Collections.Generic;
 using System.Linq;
+using System;
 using Unity.VisualScripting;
+using Random = UnityEngine.Random;
 
 public class EnemySpawningManager : MonoBehaviour
 {
@@ -11,8 +13,8 @@ public class EnemySpawningManager : MonoBehaviour
 
     [SerializeField] float minTimeBetweenSpawnWaves = 5f;
     [SerializeField] float maxTimeBetweenSpawnWaves = 20f;
-    private float timeSinceLastWave = -99f;
-    private float timeSinceLastEnemy = -99f;
+    private float timeSinceLastWave = -999f;
+    private float timeSinceLastEnemy = -999f;
 
     [SerializeField] float minTimeBetweenLevelSwap = 5f;
     private float timerstrt;
@@ -24,6 +26,7 @@ public class EnemySpawningManager : MonoBehaviour
 
     private bool finalWave = false;
 
+
     private void AddEnemy(GameObject enemy) => activeEnemies.Add(enemy);
     private void Start()
     {
@@ -33,7 +36,8 @@ public class EnemySpawningManager : MonoBehaviour
         }
         SetLevelSettings();
         SetUpWaves();
-        SpawnWave();
+        timeSinceLastWave = Time.time;
+        timeSinceLastEnemy = Time.time;
     }
 
     private void FixedUpdate()
@@ -43,7 +47,16 @@ public class EnemySpawningManager : MonoBehaviour
         activeEnemies.RemoveAll(x => !x);
         if (c != activeEnemies.Count)
             timeSinceLastEnemy = Time.time;
-        if (activeEnemies.Count < 1 && CustomUtilities.HasTimeElapsed(timeSinceLastEnemy, minTimeBetweenSpawnWaves) || CustomUtilities.HasTimeElapsed(timeSinceLastWave, maxTimeBetweenSpawnWaves))
+
+        if (activeEnemies.Count < 1 && enemiesToSpawn.Count > 0 && !CustomUtilities.HasTimeElapsed(timeSinceLastEnemy, minTimeBetweenSpawnWaves))
+        {
+            GameManager.Instance.TriggerEnemyWaveEvent(true);
+        }
+        else
+        {
+            GameManager.Instance.TriggerEnemyWaveEvent(false);
+        }
+        if (activeEnemies.Count < 1 && CustomUtilities.HasTimeElapsed(timeSinceLastEnemy, minTimeBetweenSpawnWaves)) //|| CustomUtilities.HasTimeElapsed(timeSinceLastWave, maxTimeBetweenSpawnWaves))
         {
             if (enemiesToSpawn.Count < 1)
             {
@@ -51,6 +64,7 @@ public class EnemySpawningManager : MonoBehaviour
             }
             else
             {
+                //Debug.Log("spawn wabe new");
                 SpawnWave();
             }
         }
