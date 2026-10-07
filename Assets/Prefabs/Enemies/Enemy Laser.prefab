@@ -108,9 +108,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: '::'
   playerTeam: 1
   moveSpeed: 200
-  damage: 5
+  damage: 7
   giveKnockback: 1
-  knockbackPower: 4
+  knockbackPower: 3
   dudSFX: {fileID: 0}
 --- !u!96 &722867298167800984
 TrailRenderer:
