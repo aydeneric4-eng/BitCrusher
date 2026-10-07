@@ -124,7 +124,7 @@ public class AIPathToTarget : MonoBehaviour
         //Debug.Log("StateCheck");
         timeOfLastStateCheck = Time.time;
         float distFromTarget = (transform.position - targetTransform.position).magnitude;
-        if (distFromTarget < chaseMinDistToTarget || (distFromTarget < maxDistanceFromTarget && pathingState == PathingStates.idle))
+        if ((distFromTarget < chaseMinDistToTarget || (distFromTarget < maxDistanceFromTarget && pathingState == PathingStates.idle)) && !GetLineToTarget())
         {
             ChangeState(PathingStates.idle);
         }

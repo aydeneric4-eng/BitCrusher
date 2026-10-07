@@ -5,17 +5,21 @@ using UnityEngine;
 public class PlayerDeathManager : MonoBehaviour, IHandlesDeath
 {
     private HealthTracker selfHPTracker;
+    private Vector3 ogPosition;
     private void Awake()
     {
         selfHPTracker = GetComponent<HealthTracker>();
         selfHPTracker.healthAtZero += DeathCoupler;
+
+        ogPosition = transform.position;
     }
     public void DeathCoupler() => Die();
     public void Die(bool superDie = false)
     {
         if (superDie)
         {
-            GameManager.Instance.ReducePlayerLives(-999);
+            transform.position = ogPosition;
+            return;
         }
         GameManager.Instance.ReducePlayerLives(-1);
 

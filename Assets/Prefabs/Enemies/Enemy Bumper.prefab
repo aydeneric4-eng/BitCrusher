@@ -216,7 +216,7 @@ MonoBehaviour:
   rotateTowardsTarget: 0
   orbitAnchorTransform: {fileID: 7445449483476201451}
   orbitTowardsTarget: 1
-  orbitDistance: 0.08
+  orbitDistance: 0.07
 --- !u!1 &8070976724081747660
 GameObject:
   m_ObjectHideFlags: 0
@@ -237,6 +237,7 @@ GameObject:
   - component: {fileID: 2368851440677585866}
   - component: {fileID: 6813569490831105591}
   - component: {fileID: 9160949183179242051}
+  - component: {fileID: 1754613996357809841}
   m_Layer: 0
   m_Name: Enemy Bumper
   m_TagString: Untagged
@@ -400,7 +401,7 @@ MonoBehaviour:
   playerTeam: 1
   hurtSFX: {fileID: 8300000, guid: 041e4aaef12f72a48ab64ab2be61d874, type: 3}
   healthBar: {fileID: 8782864255462788042}
-  maxHealth: 80
+  maxHealth: 90
 --- !u!114 &6350236906755358449
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -413,7 +414,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9c3c6cab2c51d3548b0de042ec0cb6fb, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::EnemyDeathHandler
-  scoreReward: 80
+  scoreReward: 100
   deathEffect: {fileID: 0}
   deathSFX: {fileID: 8300000, guid: 36fcd451c04b9554cbbb5a754c82abaf, type: 3}
 --- !u!114 &6454407057877647498
@@ -430,7 +431,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: '::'
   active: 1
   playerTeam: 1
-  damage: 10
+  damage: 5
   selfKnockback: 24
   alwaysGiveSelfKB: 0
 --- !u!114 &7852274753031918800
@@ -459,7 +460,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 99f19b60431c4bc43bcaa71c81eb7c7e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::MeleeKnockback
-  knockbackPower: 23
+  knockbackPower: 24
 --- !u!114 &2368851440677585866
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -516,6 +517,21 @@ MonoBehaviour:
   overspeedDeacceleration: 3
   inputMovementVector: {x: 0, y: 0, z: 0}
   KBSFX: {fileID: 8300000, guid: 0fc7d62742f37bb43b1a241a883a556f, type: 3}
+--- !u!114 &1754613996357809841
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8070976724081747660}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a40a82b7f39951143bd923f5e5e3bb30, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::EnemyManager
+  player: {fileID: 0}
+  face: {fileID: 3713741514904670693}
+  barrel: {fileID: 0}
 --- !u!1001 &2357172325854346233
 PrefabInstance:
   m_ObjectHideFlags: 0

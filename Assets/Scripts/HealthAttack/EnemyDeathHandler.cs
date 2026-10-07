@@ -13,15 +13,22 @@ public class EnemyDeathHandler : MonoBehaviour, IHandlesDeath
     //public event Action enemyHasDied;
     [SerializeField] AudioClip deathSFX;
 
+    private Vector3 ogPosition;
     private void Awake()
     {
         selfHPTracker = GetComponent<HealthTracker>();
         selfHPTracker.healthAtZero += DeathCoupler;
+        ogPosition = transform.position;
     }
 
     public void DeathCoupler() => Die();
     public void Die(bool superDie = false)
     {
+        if (superDie)
+        {
+            transform.position = ogPosition;
+            return;
+        }
         GameManager.Instance.AddScore(scoreReward);
         //enemyHasDied?.Invoke();
         if (deathEffect)

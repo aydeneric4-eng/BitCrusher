@@ -43919,7 +43919,7 @@ GameObject:
   - component: {fileID: 1260826802}
   - component: {fileID: 1260826801}
   - component: {fileID: 1260826800}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: BounceTiles
   m_TagString: Untagged
   m_Icon: {fileID: 0}

@@ -5030,13 +5030,14 @@ GameObject:
   - component: {fileID: 1631931063909341181}
   - component: {fileID: 5678928784807465559}
   - component: {fileID: 4125479816309785802}
+  - component: {fileID: 697861625119673444}
   m_Layer: 0
   m_Name: Enemy Melee
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &2340672860640854063
 Transform:
   m_ObjectHideFlags: 0
@@ -5194,7 +5195,7 @@ MonoBehaviour:
   playerTeam: 1
   hurtSFX: {fileID: 8300000, guid: 041e4aaef12f72a48ab64ab2be61d874, type: 3}
   healthBar: {fileID: 2188188807482471905}
-  maxHealth: 100
+  maxHealth: 120
 --- !u!114 &7012099998044028948
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -5303,13 +5304,28 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ae76d5a3d47eef842bdccc55b0d45fea, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::RBMovement
-  maxMoveSpeed: 5
+  maxMoveSpeed: 5.5
   maxOverspeed: 50
   acceleration: 1
   deacceleration: 0.8
   overspeedDeacceleration: 3
   inputMovementVector: {x: 0, y: 0, z: 0}
   KBSFX: {fileID: 8300000, guid: 0fc7d62742f37bb43b1a241a883a556f, type: 3}
+--- !u!114 &697861625119673444
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2987963101055509274}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a40a82b7f39951143bd923f5e5e3bb30, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::EnemyManager
+  player: {fileID: 0}
+  face: {fileID: 409215007673380983}
+  barrel: {fileID: 0}
 --- !u!1 &3467066537679057115
 GameObject:
   m_ObjectHideFlags: 0
@@ -5526,7 +5542,7 @@ MonoBehaviour:
   rotateTowardsTarget: 0
   orbitAnchorTransform: {fileID: 2340672860640854063}
   orbitTowardsTarget: 1
-  orbitDistance: 0.08
+  orbitDistance: 0.07
 --- !u!1001 &5119283378612487634
 PrefabInstance:
   m_ObjectHideFlags: 0

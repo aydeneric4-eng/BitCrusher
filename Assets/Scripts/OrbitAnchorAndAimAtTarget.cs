@@ -5,7 +5,7 @@ using UnityEngine.InputSystem;
 public class OrbitAnchorAndAimAtTarget : MonoBehaviour
 {
     [SerializeField] bool isTargetMouse = false;
-    [SerializeField] Transform targetTransform;
+    [SerializeField] public Transform targetTransform;
     [SerializeField] bool rotateTowardsTarget;
 
     [SerializeField] Transform orbitAnchorTransform;

@@ -1,4 +1,5 @@
 using UnityEngine;
+using UnityEngine.Rendering;
 using static CustomUtilities;
 
 public class Bullet : MonoBehaviour, IHasTeam
@@ -45,7 +46,18 @@ public class Bullet : MonoBehaviour, IHasTeam
 
         if (collidedObject.TryGetComponent<IReceivesKnockback>(out IReceivesKnockback KBReceiver) && giveKnockback)
         {
-            KBReceiver.ReceiveKnockback(-hitData.normal * knockbackPower);
+            if (collidedObject.TryGetComponent<IHasTeam>(out IHasTeam objectTeam))
+            {
+                if (objectTeam.PlayerTeam != playerTeam)
+                {
+                    KBReceiver.ReceiveKnockback(-hitData.normal * knockbackPower);
+                }
+            }
+            else
+            {
+                KBReceiver.ReceiveKnockback(-hitData.normal * knockbackPower);
+            }
+            
         }
 
         if (collidedObject.TryGetComponent<IDamagable>(out IDamagable damageHandler))
