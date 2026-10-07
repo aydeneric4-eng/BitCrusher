@@ -111,6 +111,7 @@ MonoBehaviour:
   damage: 20
   giveKnockback: 1
   knockbackPower: 8
+  dudSFX: {fileID: 8300000, guid: 0fc7d62742f37bb43b1a241a883a556f, type: 3}
 --- !u!96 &753189567177883381
 TrailRenderer:
   serializedVersion: 4

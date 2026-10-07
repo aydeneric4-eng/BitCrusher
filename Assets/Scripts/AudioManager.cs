@@ -52,6 +52,8 @@ public class AudioManager : MonoBehaviour
     private void Start()
     {
         GameManager.Instance.audioManager = this;
+
+        PlayMusic(BGMusic);
     }
     public void PlayMusic(AudioClip music)
     {

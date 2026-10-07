@@ -174,7 +174,7 @@ AudioSource:
   m_audioClip: {fileID: 0}
   m_Resource: {fileID: 0}
   m_PlayOnAwake: 1
-  m_Volume: 0.5
+  m_Volume: 0.15
   m_Pitch: 1
   Loop: 1
   Mute: 0
@@ -306,6 +306,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: '::'
   musicSource: {fileID: 5936579945835933311}
   SFXSource: {fileID: 1306719568995728}
-  BGMusic: {fileID: 8300000, guid: 1e6659ab29c2c5949a4e5dc40fba33f0, type: 3}
+  BGMusic: {fileID: 8300000, guid: c51b143806f292c40b6e6157cc15a5ee, type: 3}
   deathSFX: {fileID: 8300000, guid: 8e21c9f2b71e24644b997f1a53c2750f, type: 3}
   jumpSFX: {fileID: 8300000, guid: a7bab24e752c56947b0d3a04e509d0fc, type: 3}

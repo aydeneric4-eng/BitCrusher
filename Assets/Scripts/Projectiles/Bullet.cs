@@ -35,6 +35,7 @@ public class Bullet : MonoBehaviour, IHasTeam
         selfTransform.position += selfTransform.TransformDirection(new Vector3(moveSpeed * Time.fixedDeltaTime, 0, 0));
     }
 
+    [SerializeField] AudioClip dudSFX;
     private void handleCollision(RaycastHit2D hitData)
     {
         if (hitData.collider.isTrigger)
@@ -54,6 +55,11 @@ public class Bullet : MonoBehaviour, IHasTeam
                 return;
             }
             damageHandler.Damage(damage);
+        }
+        else
+        {
+            if (dudSFX)
+                GameManager.Instance.audioManager.PlaySFX(dudSFX);
         }
 
         if (selfRenderer)

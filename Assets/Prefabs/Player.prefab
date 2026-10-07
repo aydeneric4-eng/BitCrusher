@@ -384,7 +384,7 @@ MonoBehaviour:
   deacceleration: 0.5
   overspeedDeacceleration: 3
   inputMovementVector: {x: 0, y: 0, z: 0}
-  KBSFX: {fileID: 8300000, guid: dcc176e402e5d52469277b85bf492c18, type: 3}
+  KBSFX: {fileID: 8300000, guid: 0fc7d62742f37bb43b1a241a883a556f, type: 3}
 --- !u!114 &7303515402963308842
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -398,7 +398,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: '::'
   playerTeam: 0
-  hurtSFX: {fileID: 8300000, guid: 041e4aaef12f72a48ab64ab2be61d874, type: 3}
+  hurtSFX: {fileID: 8300000, guid: 36fcd451c04b9554cbbb5a754c82abaf, type: 3}
   healthBar: {fileID: 2267718276743583499}
   maxHealth: 100
 --- !u!114 &967119897768203474
