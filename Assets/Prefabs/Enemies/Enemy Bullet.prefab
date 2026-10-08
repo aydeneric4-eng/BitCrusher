@@ -107,8 +107,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: '::'
   playerTeam: 1
-  moveSpeed: 17.5
-  damage: 16
+  moveSpeed: 17
+  damage: 14
   giveKnockback: 1
   knockbackPower: 8
   dudSFX: {fileID: 0}

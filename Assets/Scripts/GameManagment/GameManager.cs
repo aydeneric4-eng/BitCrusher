@@ -93,7 +93,7 @@ public class GameManager : MonoBehaviour
             Debug.LogError("NO GAME SCENES");
             return;
         }
-        SceneManager.LoadScene(gameScenes.mainMenu.name);
+        SceneManager.LoadScene(gameScenes.mainMenu);
     }
     public void GotoLossScreen()
     {
@@ -102,22 +102,22 @@ public class GameManager : MonoBehaviour
             Debug.LogError("NO GAME SCENES");
             return;
         }
-        SceneManager.LoadScene(gameScenes.gameOver.name);
+        SceneManager.LoadScene(gameScenes.gameOver);
     }
 
     private void LoadDaNextLevel()
     {
-        SceneAsset sceneToLoad = gameScenes.layouts[UnityEngine.Random.Range(0, gameScenes.layouts.Count)];
+        string sceneToLoad = gameScenes.layouts[UnityEngine.Random.Range(0, gameScenes.layouts.Count)];
         //Debug.Log(currentLevel - 1);
         if (gameScenes.levelSpecificLayouts.Count > currentLevel)
         {
-            if (gameScenes.levelSpecificLayouts[currentLevel - 1])
+            if (gameScenes.levelSpecificLayouts[currentLevel - 1] != null)
             {
                 sceneToLoad = gameScenes.levelSpecificLayouts[currentLevel - 1];
             }
         }
-        //Debug.Log(currentLevel);
-        SceneManager.LoadScene(sceneToLoad.name);
+        Debug.Log(sceneToLoad);
+        SceneManager.LoadScene(sceneToLoad);
     }
 
     public void StartGame()
@@ -128,7 +128,7 @@ public class GameManager : MonoBehaviour
             return;
         }
         score = 0;
-        currentLevel = 1;
+        currentLevel = 7;
         playerLives = MaxPlayerLives;
         LoadDaNextLevel();
     }
@@ -150,6 +150,6 @@ public class GameManager : MonoBehaviour
             Debug.LogError("NO GAME SCENES");
             return;
         }
-        SceneManager.LoadScene(gameScenes.interlude.name);
+        SceneManager.LoadScene(gameScenes.interlude);
     }
 }

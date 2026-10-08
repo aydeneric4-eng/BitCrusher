@@ -19,7 +19,8 @@ MonoBehaviour:
   - {fileID: 11400000, guid: d6e588e9dd045d84aa8e5ffbae5a39eb, type: 2}
   - {fileID: 11400000, guid: e3d6a1e8d6c1e7d4db777519dcfaaed1, type: 2}
   - {fileID: 11400000, guid: 03eddab26491bec43b67fe15e3bdac0e, type: 2}
-  minNumberToSpawn: 0000000000000000040000000200000002000000
-  maxNumberToSpawn: 0000000000000000040000000200000002000000
+  minNumberToSpawn: 0000000002000000040000000300000005000000
+  maxNumberToSpawn: 0000000002000000040000000300000005000000
   chanceOfSpawn: 01000000
-  maxEnemiesPerWave: 8
+  maxEnemiesPerWave: 7
+  maxWaves: 3

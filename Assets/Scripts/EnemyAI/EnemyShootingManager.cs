@@ -22,17 +22,17 @@ public class EnemyShootingManager : MonoBehaviour
 
         if ((transform.position - targetTransform.position).magnitude > minShootDistance)
         {
-            Debug.Log("Too far");
+            //Debug.Log("Too far");
             return;
         }
 
         RaycastHit2D hitData = Physics2D.Linecast(transform.position, targetTransform.position, terrainMask);
         if (hitData)
         {
-            Debug.Log("Terrain in way");
+            //Debug.Log("Terrain in way");
             return;
         }
-        Debug.Log("good to shoot0");
+        //Debug.Log("good to shoot0");
         bulletShooter.ShootBullet();
     }
 }
