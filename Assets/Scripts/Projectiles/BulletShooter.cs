@@ -9,12 +9,23 @@ public class BulletShooter : MonoBehaviour
     [SerializeField] Bullet bulletPrefab;
 
     [SerializeField] float rateOfFire = 1f;
+
+    [SerializeField] bool isRandDelay = false;
+    private float randDelay = 0f;
     private float lastFiredTime = -999f;
 
     [SerializeField] AudioClip shootSFX;
+    private void Awake()
+    {
+        if (isRandDelay)
+        {
+            randDelay = UnityEngine.Random.Range(0f, 0.2f);
+        }
+    }
+
     public void ShootBullet()
     {
-        if (!CustomUtilities.HasTimeElapsed(lastFiredTime,rateOfFire))
+        if (!CustomUtilities.HasTimeElapsed(lastFiredTime,rateOfFire + randDelay))
         {
             return;
         }

@@ -5867,6 +5867,7 @@ MonoBehaviour:
   muzzleTransform: {fileID: 2824568611773639667}
   bulletPrefab: {fileID: 8172189045734756486, guid: f12d6dc301179fb4c935e6df009e4b13, type: 3}
   rateOfFire: 1
+  isRandDelay: 1
   shootSFX: {fileID: 8300000, guid: 5ad41669454460645a66a69c088e3887, type: 3}
 --- !u!114 &9184817671707942824
 MonoBehaviour:

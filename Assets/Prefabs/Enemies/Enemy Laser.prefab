@@ -107,8 +107,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: '::'
   playerTeam: 1
-  moveSpeed: 100
-  damage: 6
+  moveSpeed: 75
+  damage: 7
   giveKnockback: 1
   knockbackPower: 3
   dudSFX: {fileID: 0}
@@ -161,7 +161,7 @@ TrailRenderer:
   m_SortingLayer: 0
   m_SortingOrder: -1
   m_MaskInteraction: 0
-  m_Time: 0.1
+  m_Time: 0.2
   m_PreviewTimeScale: 1
   m_Parameters:
     serializedVersion: 3
@@ -193,7 +193,7 @@ TrailRenderer:
     colorGradient:
       serializedVersion: 2
       key0: {r: 0.627451, g: 0, b: 0, a: 1}
-      key1: {r: 1, g: 1, b: 1, a: 0.15686275}
+      key1: {r: 1, g: 1, b: 1, a: 0.23529412}
       key2: {r: 1, g: 1, b: 1, a: 0}
       key3: {r: 0, g: 0, b: 0, a: 0}
       key4: {r: 0, g: 0, b: 0, a: 0}

@@ -5687,7 +5687,7 @@ MonoBehaviour:
     serializedVersion: 2
     m_Bits: 8
   navigationMinDistToPoint: 0.8
-  chaseMinDistToTarget: 5
+  chaseMinDistToTarget: 5.5
   maxDistanceFromTarget: 6
   isActive: 1
   minTimeBetweenStateRechecks: 0.5
@@ -5720,7 +5720,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::RBMovement
   maxMoveSpeed: 4.5
   maxOverspeed: 50
-  acceleration: 1
+  acceleration: 0.21
   deacceleration: 0.2
   overspeedDeacceleration: 3
   inputMovementVector: {x: 0, y: 0, z: 0}
@@ -5754,7 +5754,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::BulletShooter
   muzzleTransform: {fileID: 1459428412181154862}
   bulletPrefab: {fileID: 3209174183721188312, guid: 65d3d9ac21856bf45913d377b42f4fb6, type: 3}
-  rateOfFire: 0.65
+  rateOfFire: 0.68
+  isRandDelay: 1
   shootSFX: {fileID: 8300000, guid: 5ad41669454460645a66a69c088e3887, type: 3}
 --- !u!114 &3687155949795288298
 MonoBehaviour:

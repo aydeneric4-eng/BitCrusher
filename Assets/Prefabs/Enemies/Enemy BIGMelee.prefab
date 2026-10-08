@@ -5554,7 +5554,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: '::'
   active: 1
   playerTeam: 1
-  damage: 50
+  damage: 45
   selfKnockback: 20
   alwaysGiveSelfKB: 0
 --- !u!114 &5189911582819662340
