@@ -736,7 +736,7 @@ MonoBehaviour:
   playerTeam: 1
   hurtSFX: {fileID: 8300000, guid: 041e4aaef12f72a48ab64ab2be61d874, type: 3}
   healthBar: {fileID: 3045394094815326671}
-  maxHealth: 75
+  maxHealth: 70
 --- !u!114 &4975132758323783545
 MonoBehaviour:
   m_ObjectHideFlags: 0

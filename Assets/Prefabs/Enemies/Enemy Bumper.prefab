@@ -432,7 +432,7 @@ MonoBehaviour:
   active: 1
   playerTeam: 1
   damage: 5
-  selfKnockback: 24
+  selfKnockback: 19
   alwaysGiveSelfKB: 0
 --- !u!114 &7852274753031918800
 MonoBehaviour:
@@ -446,7 +446,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d431e2e8b5b1c6c419c4f05602d93704, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::NaturalKnockback
-  selfKnockbackPower: 16
+  selfKnockbackPower: 15
   allwaysGiveSelfKnockback: 0
 --- !u!114 &2966205239169814604
 MonoBehaviour:
@@ -460,7 +460,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 99f19b60431c4bc43bcaa71c81eb7c7e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::MeleeKnockback
-  knockbackPower: 24
+  knockbackPower: 22
 --- !u!114 &2368851440677585866
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -512,7 +512,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::RBMovement
   maxMoveSpeed: 8.5
   maxOverspeed: 50
-  acceleration: 1.2
+  acceleration: 0.85
   deacceleration: 0.8
   overspeedDeacceleration: 3
   inputMovementVector: {x: 0, y: 0, z: 0}

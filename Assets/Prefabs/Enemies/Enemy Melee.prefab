@@ -5037,7 +5037,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!4 &2340672860640854063
 Transform:
   m_ObjectHideFlags: 0
@@ -5195,7 +5195,7 @@ MonoBehaviour:
   playerTeam: 1
   hurtSFX: {fileID: 8300000, guid: 041e4aaef12f72a48ab64ab2be61d874, type: 3}
   healthBar: {fileID: 2188188807482471905}
-  maxHealth: 120
+  maxHealth: 150
 --- !u!114 &7012099998044028948
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -5225,7 +5225,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: '::'
   active: 1
   playerTeam: 1
-  damage: 35
+  damage: 40
   selfKnockback: 20
   alwaysGiveSelfKB: 0
 --- !u!114 &3537987666104519328
@@ -5254,7 +5254,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 99f19b60431c4bc43bcaa71c81eb7c7e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::MeleeKnockback
-  knockbackPower: 20
+  knockbackPower: 18
 --- !u!114 &1631931063909341181
 MonoBehaviour:
   m_ObjectHideFlags: 0

@@ -21,6 +21,8 @@ public class EnemyDeathHandler : MonoBehaviour, IHandlesDeath
         ogPosition = transform.position;
     }
 
+    [SerializeField] GameObject[] outsideDisables;
+
     public void DeathCoupler() => Die();
     public void Die(bool superDie = false)
     {
@@ -35,7 +37,34 @@ public class EnemyDeathHandler : MonoBehaviour, IHandlesDeath
             deathEffect.Play();
         if (deathSFX)
             GameManager.Instance.audioManager.PlaySFX(deathSFX);
-        Destroy(gameObject);
+        foreach (Behaviour comp in GetComponents<Behaviour>())
+        {
+            if (comp == deathEffect)
+            {
+                continue;
+            }
+            comp.enabled = false;
+        }
+        foreach (GameObject child in outsideDisables)
+        {
+            if (child.TryGetComponent<SpriteRenderer>(out SpriteRenderer ospr))
+            {
+                ospr.enabled = false;
+            }
+            else if (child.TryGetComponent<ValueBar>(out ValueBar vb))
+            {
+                child.transform.position = new Vector3(999, 999, 999);
+            }
+        }
+        if (TryGetComponent<SpriteRenderer>(out SpriteRenderer spr))
+        {
+            spr.enabled = false;
+        }
+        if (TryGetComponent<Rigidbody2D>(out Rigidbody2D move))
+        {
+            move.linearVelocity = Vector2.zero;
+        }
+        Destroy(gameObject, 2f);
     }
 
 }
