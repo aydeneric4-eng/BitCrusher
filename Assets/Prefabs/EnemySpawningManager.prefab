@@ -48,6 +48,14 @@ MonoBehaviour:
   - {fileID: 0}
   levelSettings:
   - {fileID: 11400000, guid: 4dff023c3d3bad94f98e73debbc8422f, type: 2}
+  - {fileID: 11400000, guid: abe412df2a04b8c4fba6e2e58af0dbef, type: 2}
+  - {fileID: 11400000, guid: ebcbf9d38f48c324ba2f2f7767dfe42c, type: 2}
+  - {fileID: 11400000, guid: d69557bd0793fb64eb28fa19409cde86, type: 2}
+  - {fileID: 11400000, guid: 4e037608ec3aeeb4abb7430d4f5bb1ce, type: 2}
+  - {fileID: 11400000, guid: 1857162df1ad6f94789719605297ec2b, type: 2}
+  - {fileID: 11400000, guid: 9c768e9095c87ba488c810230bdc9338, type: 2}
+  - {fileID: 11400000, guid: 07c4abadd4c5135408b28f0fa8b29b07, type: 2}
+  - {fileID: 11400000, guid: 8f8ea3f5bd66bdc4f870ef675aae4038, type: 2}
   activeEnemies: []
   minTimeBetweenSpawnWaves: 2.5
   maxTimeBetweenSpawnWaves: 30

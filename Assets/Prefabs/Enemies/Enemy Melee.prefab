@@ -185,7 +185,7 @@ MonoBehaviour:
   playerTeam: 1
   hurtSFX: {fileID: 8300000, guid: 041e4aaef12f72a48ab64ab2be61d874, type: 3}
   healthBar: {fileID: 2188188807482471905}
-  maxHealth: 130
+  maxHealth: 120
 --- !u!114 &7012099998044028948
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -219,7 +219,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: '::'
   active: 1
   playerTeam: 1
-  damage: 35
+  damage: 30
   selfKnockback: 20
   alwaysGiveSelfKB: 0
 --- !u!114 &3537987666104519328
@@ -298,9 +298,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ae76d5a3d47eef842bdccc55b0d45fea, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::RBMovement
-  maxMoveSpeed: 6
+  maxMoveSpeed: 6.2
   maxOverspeed: 50
-  acceleration: 1.1
+  acceleration: 1
   deacceleration: 0.8
   overspeedDeacceleration: 3
   inputMovementVector: {x: 0, y: 0, z: 0}

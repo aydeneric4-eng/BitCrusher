@@ -5754,7 +5754,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::BulletShooter
   muzzleTransform: {fileID: 1459428412181154862}
   bulletPrefab: {fileID: 3209174183721188312, guid: 65d3d9ac21856bf45913d377b42f4fb6, type: 3}
-  rateOfFire: 0.68
+  rateOfFire: 0.67
   isRandDelay: 1
   shootSFX: {fileID: 8300000, guid: 5ad41669454460645a66a69c088e3887, type: 3}
 --- !u!114 &3687155949795288298

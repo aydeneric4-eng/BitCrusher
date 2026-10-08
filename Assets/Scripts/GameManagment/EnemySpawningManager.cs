@@ -24,6 +24,7 @@ public class EnemySpawningManager : MonoBehaviour
 
     private bool finalWave = false;
 
+    private int wavesSoFar = 0;
 
     private void AddEnemy(GameObject enemy) => activeEnemies.Add(enemy);
     private void Start()
@@ -46,7 +47,7 @@ public class EnemySpawningManager : MonoBehaviour
         if (c != activeEnemies.Count)
             timeSinceLastEnemy = Time.time;
 
-        if (activeEnemies.Count < 1 && enemiesToSpawn.Count > 0 && !CustomUtilities.HasTimeElapsed(timeSinceLastEnemy, minTimeBetweenSpawnWaves))
+        if (activeEnemies.Count < 1 && enemiesToSpawn.Count > 0 && !CustomUtilities.HasTimeElapsed(timeSinceLastEnemy, minTimeBetweenSpawnWaves) && !(wavesSoFar >= currentLevelSettings.maxWaves))
         {
             GameManager.Instance.TriggerEnemyWaveEvent(true);
         }
@@ -54,9 +55,9 @@ public class EnemySpawningManager : MonoBehaviour
         {
             GameManager.Instance.TriggerEnemyWaveEvent(false);
         }
-        if (activeEnemies.Count < 1 && CustomUtilities.HasTimeElapsed(timeSinceLastEnemy, minTimeBetweenSpawnWaves)) //|| CustomUtilities.HasTimeElapsed(timeSinceLastWave, maxTimeBetweenSpawnWaves))
+        if ((activeEnemies.Count < 1 && CustomUtilities.HasTimeElapsed(timeSinceLastEnemy, minTimeBetweenSpawnWaves))) //|| CustomUtilities.HasTimeElapsed(timeSinceLastWave, maxTimeBetweenSpawnWaves))
         {
-            if (enemiesToSpawn.Count < 1)
+            if (enemiesToSpawn.Count < 1 || wavesSoFar >= currentLevelSettings.maxWaves)
             {
                 GameManager.Instance.GoToInterlude();
             }
@@ -97,6 +98,10 @@ public class EnemySpawningManager : MonoBehaviour
         int enemiesOfTypeToAdd;
         for (int i = 0; i < currentLevelSettings.enemyTypes.Count; i++)
         {
+            if (currentLevelSettings.maxNumberToSpawn[i] < 1)
+            {
+                continue;
+            }
             enemiesOfTypeToAdd = Random.Range(currentLevelSettings.minNumberToSpawn[i], currentLevelSettings.maxNumberToSpawn[i] + 1);
             //Debug.Log(enemiesOfTypeToAdd);
             //Debug.Log(currentLevelSettings.minNumberToSpawn[i]);
@@ -140,6 +145,7 @@ public class EnemySpawningManager : MonoBehaviour
         {
             finalWave = true;
         }
+        wavesSoFar++;
         //Debug.Log("Finished spawning wave");
     }
 }

@@ -10,5 +10,6 @@ public class LevelSpawnSettings : ScriptableObject
     public List<int> maxNumberToSpawn = new List<int>();
     public List<int> chanceOfSpawn = new List<int>();
     public int maxEnemiesPerWave = 1;
+    public int maxWaves = 3;
 
 }

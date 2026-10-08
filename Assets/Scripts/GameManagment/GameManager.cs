@@ -108,14 +108,15 @@ public class GameManager : MonoBehaviour
     private void LoadDaNextLevel()
     {
         SceneAsset sceneToLoad = gameScenes.layouts[UnityEngine.Random.Range(0, gameScenes.layouts.Count)];
-        if (gameScenes.levelSpecificLayours.Count > currentLevel)
+        //Debug.Log(currentLevel - 1);
+        if (gameScenes.levelSpecificLayouts.Count > currentLevel)
         {
-            if (gameScenes.levelSpecificLayours[currentLevel - 1])
+            if (gameScenes.levelSpecificLayouts[currentLevel - 1])
             {
-                sceneToLoad = gameScenes.levelSpecificLayours[currentLevel];
+                sceneToLoad = gameScenes.levelSpecificLayouts[currentLevel - 1];
             }
         }
-        Debug.Log(currentLevel);
+        //Debug.Log(currentLevel);
         SceneManager.LoadScene(sceneToLoad.name);
     }
 

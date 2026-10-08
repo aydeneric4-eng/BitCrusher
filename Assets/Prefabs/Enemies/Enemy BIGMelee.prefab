@@ -5532,7 +5532,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9c3c6cab2c51d3548b0de042ec0cb6fb, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::EnemyDeathHandler
-  scoreReward: 100
+  scoreReward: 200
   deathEffect: {fileID: 981970199833587026}
   deathSFX: {fileID: 8300000, guid: 36fcd451c04b9554cbbb5a754c82abaf, type: 3}
   outsideDisables:
@@ -5554,7 +5554,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: '::'
   active: 1
   playerTeam: 1
-  damage: 45
+  damage: 46
   selfKnockback: 20
   alwaysGiveSelfKB: 0
 --- !u!114 &5189911582819662340

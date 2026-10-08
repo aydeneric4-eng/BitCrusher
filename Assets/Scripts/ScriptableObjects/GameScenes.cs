@@ -12,5 +12,5 @@ public class GameScenes : ScriptableObject
 
     public List<SceneAsset> layouts = new List<SceneAsset>();
 
-    public List<SceneAsset> levelSpecificLayours = new List<SceneAsset>();
+    public List<SceneAsset> levelSpecificLayouts = new List<SceneAsset>();
 }

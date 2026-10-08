@@ -29,6 +29,10 @@ public class EnemyDeathHandler : MonoBehaviour, IHandlesDeath
         if (superDie)
         {
             transform.position = ogPosition;
+            if (TryGetComponent<RBMovement>(out RBMovement rbm))
+            {
+                rbm.ResetVelocity();
+            }
             return;
         }
         GameManager.Instance.AddScore(scoreReward);

@@ -18,6 +18,13 @@ public class RBMovement : MonoBehaviour, IReceivesKnockback
     {
         selfRigidBody = GetComponent<Rigidbody2D>();
     }
+
+    public void ResetVelocity()
+    {
+        velocity = Vector3.zero;
+        selfRigidBody.linearVelocity = velocity;
+    }
+
     private float GetNewVelocityValue(float current, float input) // UGLY!!!!
     {
         float inputSign = Mathf.Sign(input);
