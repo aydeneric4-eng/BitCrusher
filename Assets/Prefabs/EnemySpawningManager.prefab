@@ -48,9 +48,6 @@ MonoBehaviour:
   - {fileID: 0}
   levelSettings:
   - {fileID: 11400000, guid: 4dff023c3d3bad94f98e73debbc8422f, type: 2}
-  - {fileID: 11400000, guid: cd9df45dcde7ac346acee97b00214a5c, type: 2}
-  - {fileID: 11400000, guid: e1428ef40c97d8e4696ce76d90bb246b, type: 2}
   activeEnemies: []
-  minTimeBetweenSpawnWaves: 3
+  minTimeBetweenSpawnWaves: 2.5
   maxTimeBetweenSpawnWaves: 30
-  minTimeBetweenLevelSwap: 5

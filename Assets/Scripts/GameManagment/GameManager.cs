@@ -104,6 +104,21 @@ public class GameManager : MonoBehaviour
         }
         SceneManager.LoadScene(gameScenes.gameOver.name);
     }
+
+    private void LoadDaNextLevel()
+    {
+        SceneAsset sceneToLoad = gameScenes.layouts[UnityEngine.Random.Range(0, gameScenes.layouts.Count)];
+        if (gameScenes.levelSpecificLayours.Count > currentLevel)
+        {
+            if (gameScenes.levelSpecificLayours[currentLevel - 1])
+            {
+                sceneToLoad = gameScenes.levelSpecificLayours[currentLevel];
+            }
+        }
+        Debug.Log(currentLevel);
+        SceneManager.LoadScene(sceneToLoad.name);
+    }
+
     public void StartGame()
     {
         if (!gameScenes)
@@ -114,7 +129,7 @@ public class GameManager : MonoBehaviour
         score = 0;
         currentLevel = 1;
         playerLives = MaxPlayerLives;
-        SceneManager.LoadScene(gameScenes.layouts[UnityEngine.Random.Range(0,gameScenes.layouts.Count)].name);
+        LoadDaNextLevel();
     }
     public void GotoNextLevel()
     {
@@ -124,9 +139,7 @@ public class GameManager : MonoBehaviour
             return;
         }
         currentLevel++;
-        //Debug.Log("next leve");
-        //Debug.Log(currentLevel);
-        SceneManager.LoadScene(gameScenes.layouts[UnityEngine.Random.Range(0, gameScenes.layouts.Count)].name);
+        LoadDaNextLevel();
     }
 
     public void GoToInterlude()
