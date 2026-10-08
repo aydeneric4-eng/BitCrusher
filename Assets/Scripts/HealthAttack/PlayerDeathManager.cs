@@ -4,6 +4,7 @@ using UnityEngine;
 [RequireComponent(typeof(HealthTracker))]
 public class PlayerDeathManager : MonoBehaviour, IHandlesDeath
 {
+    [SerializeField] ParticleSystem deathVFX;
     private HealthTracker selfHPTracker;
     private Vector3 ogPosition;
     private void Awake()
@@ -21,6 +22,12 @@ public class PlayerDeathManager : MonoBehaviour, IHandlesDeath
             transform.position = ogPosition;
             return;
         }
+
+        if (deathVFX)
+        {
+            deathVFX.Play();
+        }
+
         GameManager.Instance.ReducePlayerLives(-1);
 
         if (GameManager.Instance.playerLives < 1)

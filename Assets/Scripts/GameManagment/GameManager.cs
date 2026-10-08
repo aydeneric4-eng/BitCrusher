@@ -116,7 +116,7 @@ public class GameManager : MonoBehaviour
                 sceneToLoad = gameScenes.levelSpecificLayouts[currentLevel - 1];
             }
         }
-        Debug.Log(sceneToLoad);
+        //Debug.Log(sceneToLoad);
         SceneManager.LoadScene(sceneToLoad);
     }
 
@@ -128,7 +128,7 @@ public class GameManager : MonoBehaviour
             return;
         }
         score = 0;
-        currentLevel = 7;
+        currentLevel = 1;
         playerLives = MaxPlayerLives;
         LoadDaNextLevel();
     }
