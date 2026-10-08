@@ -60892,7 +60892,7 @@ ParticleSystem:
       countCurve:
         serializedVersion: 2
         minMaxState: 0
-        scalar: 8
+        scalar: 10
         minScalar: 30
         maxCurve:
           serializedVersion: 2
@@ -60950,7 +60950,7 @@ ParticleSystem:
       countCurve:
         serializedVersion: 2
         minMaxState: 0
-        scalar: 12
+        scalar: 20
         minScalar: 30
         maxCurve:
           serializedVersion: 2
@@ -61008,7 +61008,7 @@ ParticleSystem:
       countCurve:
         serializedVersion: 2
         minMaxState: 0
-        scalar: 8
+        scalar: 10
         minScalar: 30
         maxCurve:
           serializedVersion: 2
@@ -61062,7 +61062,7 @@ ParticleSystem:
       repeatInterval: 0.01
       probability: 1
   SizeModule:
-    enabled: 0
+    enabled: 1
     curve:
       serializedVersion: 2
       minMaxState: 1
@@ -61073,21 +61073,21 @@ ParticleSystem:
         m_Curve:
         - serializedVersion: 3
           time: 0
-          value: 0
+          value: 1
           inSlope: 0
-          outSlope: 1
+          outSlope: 0
           tangentMode: 0
           weightedMode: 0
           inWeight: 0.33333334
           outWeight: 0.33333334
         - serializedVersion: 3
-          time: 1
-          value: 1
-          inSlope: 1
-          outSlope: 0
+          time: 0.7525693
+          value: 0
+          inSlope: -0.6217931
+          outSlope: -0.6217931
           tangentMode: 0
           weightedMode: 0
-          inWeight: 0.33333334
+          inWeight: 0.12467545
           outWeight: 0.33333334
         m_PreInfinity: 2
         m_PostInfinity: 2
@@ -61395,7 +61395,7 @@ ParticleSystem:
       maxGradient:
         serializedVersion: 2
         key0: {r: 1, g: 1, b: 1, a: 1}
-        key1: {r: 1, g: 1, b: 1, a: 0}
+        key1: {r: 1, g: 1, b: 1, a: 0.39215687}
         key2: {r: 0, g: 0, b: 0, a: 0}
         key3: {r: 0, g: 0, b: 0, a: 0}
         key4: {r: 0, g: 0, b: 0, a: 0}
@@ -61577,7 +61577,7 @@ ParticleSystem:
     flipU: 0
     flipV: 0
   VelocityModule:
-    enabled: 0
+    enabled: 1
     x:
       serializedVersion: 2
       minMaxState: 0
@@ -62111,7 +62111,7 @@ ParticleSystem:
     speedModifier:
       serializedVersion: 2
       minMaxState: 0
-      scalar: 1
+      scalar: 0.3
       minScalar: 1
       maxCurve:
         serializedVersion: 2
@@ -65296,10 +65296,6 @@ PrefabInstance:
       propertyPath: m_Name
       value: Enemy Bumper
       objectReference: {fileID: 0}
-    - target: {fileID: 8070976724081747660, guid: 1b3e252de89f9bf4eb693399dd10065a, type: 3}
-      propertyPath: m_IsActive
-      value: 0
-      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -65569,10 +65565,6 @@ PrefabInstance:
     - target: {fileID: 7017362507696239474, guid: 2c9bbd30626a2184da7e9bf77ee1ef3c, type: 3}
       propertyPath: m_Name
       value: Enemy PewPew
-      objectReference: {fileID: 0}
-    - target: {fileID: 7017362507696239474, guid: 2c9bbd30626a2184da7e9bf77ee1ef3c, type: 3}
-      propertyPath: m_IsActive
-      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -66130,10 +66122,6 @@ PrefabInstance:
       propertyPath: m_Name
       value: Enemy Melee
       objectReference: {fileID: 0}
-    - target: {fileID: 2987963101055509274, guid: 7fe42dc8587340041acbc797fe599318, type: 3}
-      propertyPath: m_IsActive
-      value: 0
-      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -66150,10 +66138,6 @@ PrefabInstance:
     - target: {fileID: 8396549798083870337, guid: 5eaf7d2de42501648b8b719b8c90d52a, type: 3}
       propertyPath: m_Name
       value: Enemy LaserBoi
-      objectReference: {fileID: 0}
-    - target: {fileID: 8396549798083870337, guid: 5eaf7d2de42501648b8b719b8c90d52a, type: 3}
-      propertyPath: m_IsActive
-      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 8842652250482568564, guid: 5eaf7d2de42501648b8b719b8c90d52a, type: 3}
       propertyPath: m_LocalPosition.x
