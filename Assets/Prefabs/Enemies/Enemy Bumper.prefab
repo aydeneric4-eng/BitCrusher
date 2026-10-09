@@ -5446,7 +5446,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: '::'
   active: 1
   playerTeam: 1
-  damage: 5
+  damage: 4
   selfKnockback: 19
   alwaysGiveSelfKB: 0
 --- !u!114 &7852274753031918800
@@ -5475,7 +5475,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 99f19b60431c4bc43bcaa71c81eb7c7e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::MeleeKnockback
-  knockbackPower: 22
+  knockbackPower: 23
 --- !u!114 &2368851440677585866
 MonoBehaviour:
   m_ObjectHideFlags: 0
