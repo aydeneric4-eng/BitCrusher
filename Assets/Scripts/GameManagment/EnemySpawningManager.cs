@@ -122,11 +122,13 @@ public class EnemySpawningManager : MonoBehaviour
         
         for (int i = 0; spawnersAvailable.Count > 0 && enemiesToSpawn.Count > 0 && i < currentLevelSettings.maxEnemiesPerWave; i++)
         {
-            selectedSpawner = spawnersAvailable[Random.Range(0, spawnersAvailable.Count)];
-            selectedEnemy = enemiesToSpawn.Keys.ToList()[Random.Range(0, enemiesToSpawn.Keys.Count )];
+            selectedSpawner = spawnersAvailable[UnityEngine.Random.Range(0, spawnersAvailable.Count)];
+            selectedEnemy = enemiesToSpawn.Keys.ToList()[UnityEngine.Random.Range(0, enemiesToSpawn.Keys.Count )];
 
             //Debug.Log("Quueing enemy spawn w/ spawner");
             //Debug.Log(enemiesToSpawn[selectedEnemy]);
+
+            Debug.Log(selectedEnemy);
             selectedSpawner.QueueSpawn(selectedEnemy, 1);
             enemiesToSpawn[selectedEnemy] -= 1;
             if (enemiesToSpawn[selectedEnemy] <= 0)

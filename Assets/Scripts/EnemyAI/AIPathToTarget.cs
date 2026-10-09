@@ -3,7 +3,6 @@ using System.Collections.Generic;
 using System.IO;
 using System.Reflection.Metadata.Ecma335;
 using System.Text.RegularExpressions;
-using UnityEditor.U2D.Sprites;
 using UnityEngine;
 
 [RequireComponent(typeof(AIGoToPoint))]

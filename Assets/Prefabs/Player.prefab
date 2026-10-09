@@ -402,6 +402,7 @@ MonoBehaviour:
   hurtSFX: {fileID: 8300000, guid: 36fcd451c04b9554cbbb5a754c82abaf, type: 3}
   healthBar: {fileID: 2267718276743583499}
   maxHealth: 100
+  invincibleAfterHit: 1
 --- !u!114 &967119897768203474
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -483,7 +484,7 @@ Transform:
   m_GameObject: {fileID: 5020270604652557852}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0.55, y: 0, z: 0}
+  m_LocalPosition: {x: 0.5, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []

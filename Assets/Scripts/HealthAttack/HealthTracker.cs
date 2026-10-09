@@ -15,6 +15,7 @@ public class HealthTracker : MonoBehaviour, IDamagable, IHasTeam
 
     [SerializeField] ValueBar healthBar = null;
     [SerializeField] float maxHealth = 100;
+    [SerializeField] bool invincibleAfterHit = false;
     private float currentHealth;
     private bool isInvincible = false;
     private float invincibilityStartTime;
@@ -57,6 +58,9 @@ public class HealthTracker : MonoBehaviour, IDamagable, IHasTeam
         if (currentHealth <= 0)
         {
             healthAtZero?.Invoke();
+        } else if (invincibleAfterHit)
+        {
+            MakeInvincible(0.25f);
         }
     }
 
